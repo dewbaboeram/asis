@@ -1,0 +1,58 @@
+﻿@model DSupportWebApp.Models.att_sub
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>att_sub</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDAttMain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDAttMain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameNL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameNL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserModified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

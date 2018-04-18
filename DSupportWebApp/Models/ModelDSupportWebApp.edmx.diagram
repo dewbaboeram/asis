@@ -31,6 +31,11 @@
         <EntityTypeShape EntityType="dsupportwebappModel.asis_attmain" Width="1.5" PointX="3.375" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelog" Width="1.5" PointX="14.625" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dsupportwebappModel.user_group" Width="1.5" PointX="15.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dsupportwebappModel.att_help" Width="1.5" PointX="15.375" PointY="12.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.att_message" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.att_param" Width="1.5" PointX="9.375" PointY="16.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.att_main" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.att_sub" Width="1.5" PointX="13.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

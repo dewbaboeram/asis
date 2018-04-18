@@ -245,6 +245,93 @@
           <Property Name="DateCreated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateModified" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.dsupportwebapp.att_help' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="att_help">
+          <Key>
+            <PropertyRef Name="IDHelp" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDHelp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameNL" Type="longtext" />
+          <Property Name="NameEN" Type="longtext" />
+          <Property Name="Controller" Type="varchar" MaxLength="255" />
+          <Property Name="IDUserCreated" Type="int" />
+          <Property Name="IDUserModified" Type="int" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateModified" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.dsupportwebapp.att_main' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="att_main">
+          <Key>
+            <PropertyRef Name="IDAttMain" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDAttMain" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameNL" Type="varchar" MaxLength="50" />
+          <Property Name="NameEN" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IDUserCreated" Type="int" />
+          <Property Name="IDUserModified" Type="int" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateModified" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.dsupportwebapp.att_message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="att_message">
+          <Key>
+            <PropertyRef Name="IDMessage" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDMessage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAttMessageType" Type="int" />
+          <Property Name="NameNL" Type="varchar" MaxLength="255" />
+          <Property Name="NameEN" Type="varchar" MaxLength="255" />
+          <Property Name="IDUserCreated" Type="int" />
+          <Property Name="IDUserModified" Type="int" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateModified" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.dsupportwebapp.att_param' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="att_param">
+          <Key>
+            <PropertyRef Name="IDParam" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDParam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyNL" Type="varchar" MaxLength="255" />
+          <Property Name="KeyEN" Type="varchar" MaxLength="255" />
+          <Property Name="Value" Type="varchar" MaxLength="255" />
+          <Property Name="IDUserCreated" Type="int" />
+          <Property Name="IDUserModified" Type="int" />
+          <Property Name="DateCreated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.dsupportwebapp.att_sub' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="att_sub">
+          <Key>
+            <PropertyRef Name="IDAttSub" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDAttSub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAttMain" Type="int" />
+          <Property Name="SortOrder" Type="varchar" MaxLength="255" />
+          <Property Name="NameNL" Type="varchar" MaxLength="255" />
+          <Property Name="NameEN" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IDUserCreated" Type="int" />
+          <Property Name="IDUserModified" Type="int" />
+          <Property Name="DateCreated" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateModified" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="user_controller">
           <Key>
             <PropertyRef Name="IDController" />
@@ -395,6 +482,66 @@
           <EntitySet Name="user_list" EntityType="Self.user_list" Schema="dsupportwebapp" store:Type="Tables" />
           <EntitySet Name="user_log" EntityType="Self.user_log" Schema="dsupportwebapp" store:Type="Tables" />
           <EntitySet Name="user_message" EntityType="Self.user_message" Schema="dsupportwebapp" store:Type="Tables" />
+          <EntitySet Name="att_help" EntityType="Self.att_help" store:Type="Tables" store:Schema="dsupportwebapp">
+            <DefiningQuery>SELECT
+`att_help`.`IDHelp`, 
+`att_help`.`NameNL`, 
+`att_help`.`NameEN`, 
+`att_help`.`Controller`, 
+`att_help`.`IDUserCreated`, 
+`att_help`.`IDUserModified`, 
+`att_help`.`DateCreated`, 
+`att_help`.`DateModified`
+FROM `att_help` AS `att_help`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="att_main" EntityType="Self.att_main" store:Type="Tables" store:Schema="dsupportwebapp">
+            <DefiningQuery>SELECT
+`att_main`.`IDAttMain`, 
+`att_main`.`NameNL`, 
+`att_main`.`NameEN`, 
+`att_main`.`IDUserCreated`, 
+`att_main`.`IDUserModified`, 
+`att_main`.`DateCreated`, 
+`att_main`.`DateModified`
+FROM `att_main` AS `att_main`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="att_message" EntityType="Self.att_message" store:Type="Tables" store:Schema="dsupportwebapp">
+            <DefiningQuery>SELECT
+`att_message`.`IDMessage`, 
+`att_message`.`IDAttMessageType`, 
+`att_message`.`NameNL`, 
+`att_message`.`NameEN`, 
+`att_message`.`IDUserCreated`, 
+`att_message`.`IDUserModified`, 
+`att_message`.`DateCreated`, 
+`att_message`.`DateModified`
+FROM `att_message` AS `att_message`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="att_param" EntityType="Self.att_param" store:Type="Tables" store:Schema="dsupportwebapp">
+            <DefiningQuery>SELECT
+`att_param`.`IDParam`, 
+`att_param`.`KeyNL`, 
+`att_param`.`KeyEN`, 
+`att_param`.`Value`, 
+`att_param`.`IDUserCreated`, 
+`att_param`.`IDUserModified`, 
+`att_param`.`DateCreated`, 
+`att_param`.`DateModified`
+FROM `att_param` AS `att_param`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="att_sub" EntityType="Self.att_sub" store:Type="Tables" store:Schema="dsupportwebapp">
+            <DefiningQuery>SELECT
+`att_sub`.`IDAttSub`, 
+`att_sub`.`IDAttMain`, 
+`att_sub`.`SortOrder`, 
+`att_sub`.`NameNL`, 
+`att_sub`.`NameEN`, 
+`att_sub`.`IDUserCreated`, 
+`att_sub`.`IDUserModified`, 
+`att_sub`.`DateCreated`, 
+`att_sub`.`DateModified`
+FROM `att_sub` AS `att_sub`</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -427,6 +574,11 @@
           <EntitySet Name="asis_attmain" EntityType="dsupportwebappModel.asis_attmain" />
           <EntitySet Name="asis_tablelog" EntityType="dsupportwebappModel.asis_tablelog" />
           <EntitySet Name="user_group" EntityType="dsupportwebappModel.user_group" />
+          <EntitySet Name="att_help" EntityType="dsupportwebappModel.att_help" />
+          <EntitySet Name="att_message" EntityType="dsupportwebappModel.att_message" />
+          <EntitySet Name="att_param" EntityType="dsupportwebappModel.att_param" />
+          <EntitySet Name="att_main" EntityType="dsupportwebappModel.att_main" />
+          <EntitySet Name="att_sub" EntityType="dsupportwebappModel.att_sub" />
         </EntityContainer>
         <EntityType Name="asis_attsub">
           <Key>
@@ -790,6 +942,83 @@
           <Property Name="IDUserModified" Type="Int32" />
           <Property Name="DateCreated" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
           <Property Name="DateModified" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="att_help">
+          <Key>
+            <PropertyRef Name="IDHelp" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDHelp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameNL" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="Controller" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="att_message">
+          <Key>
+            <PropertyRef Name="IDMessage" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDMessage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAttMessageType" Type="Int32" />
+          <Property Name="NameNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="att_param">
+          <Key>
+            <PropertyRef Name="IDParam" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDParam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeyNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="KeyEN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="att_main">
+          <Key>
+            <PropertyRef Name="IDAttMain" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDAttMain" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameNL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="att_sub">
+          <Key>
+            <PropertyRef Name="IDAttSub" />
+            <PropertyRef Name="NameEN" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateModified" />
+          </Key>
+          <Property Name="IDAttSub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAttMain" Type="Int32" />
+          <Property Name="SortOrder" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1183,6 +1412,76 @@
                 <ScalarProperty Name="NameEN" ColumnName="NameEN" />
                 <ScalarProperty Name="NameNL" ColumnName="NameNL" />
                 <ScalarProperty Name="IDUserGroup" ColumnName="IDUserGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="att_help">
+            <EntityTypeMapping TypeName="dsupportwebappModel.att_help">
+              <MappingFragment StoreEntitySet="att_help">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="IDHelp" ColumnName="IDHelp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="att_message">
+            <EntityTypeMapping TypeName="dsupportwebappModel.att_message">
+              <MappingFragment StoreEntitySet="att_message">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="IDAttMessageType" ColumnName="IDAttMessageType" />
+                <ScalarProperty Name="IDMessage" ColumnName="IDMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="att_param">
+            <EntityTypeMapping TypeName="dsupportwebappModel.att_param">
+              <MappingFragment StoreEntitySet="att_param">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyEN" ColumnName="KeyEN" />
+                <ScalarProperty Name="KeyNL" ColumnName="KeyNL" />
+                <ScalarProperty Name="IDParam" ColumnName="IDParam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="att_main">
+            <EntityTypeMapping TypeName="dsupportwebappModel.att_main">
+              <MappingFragment StoreEntitySet="att_main">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="IDAttMain" ColumnName="IDAttMain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="att_sub">
+            <EntityTypeMapping TypeName="dsupportwebappModel.att_sub">
+              <MappingFragment StoreEntitySet="att_sub">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="IDAttMain" ColumnName="IDAttMain" />
+                <ScalarProperty Name="IDAttSub" ColumnName="IDAttSub" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

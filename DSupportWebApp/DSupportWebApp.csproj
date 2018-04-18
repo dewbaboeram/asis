@@ -207,6 +207,8 @@
     <Compile Include="Controllers\asis_paramController.cs" />
     <Compile Include="Controllers\asis_tablelistController.cs" />
     <Compile Include="Controllers\asis_tablelogController.cs" />
+    <Compile Include="Controllers\att_mainController.cs" />
+    <Compile Include="Controllers\att_subController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\user_groupController.cs" />
@@ -265,6 +267,21 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_translate.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_help.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_main.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_message.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_param.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_sub.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -1040,6 +1057,16 @@
     <Content Include="Views\asis_viewusergroup\Details.cshtml" />
     <Content Include="Views\asis_viewusergroup\Edit.cshtml" />
     <Content Include="Views\asis_viewusergroup\Index.cshtml" />
+    <Content Include="Views\att_main\Create.cshtml" />
+    <Content Include="Views\att_main\Delete.cshtml" />
+    <Content Include="Views\att_main\Details.cshtml" />
+    <Content Include="Views\att_main\Edit.cshtml" />
+    <Content Include="Views\att_main\Index.cshtml" />
+    <Content Include="Views\att_sub\Create.cshtml" />
+    <Content Include="Views\att_sub\Delete.cshtml" />
+    <Content Include="Views\att_sub\Details.cshtml" />
+    <Content Include="Views\att_sub\Edit.cshtml" />
+    <Content Include="Views\att_sub\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

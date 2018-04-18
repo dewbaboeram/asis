@@ -51,5 +51,10 @@ namespace DSupportWebApp.Models
         public virtual DbSet<asis_attmain> asis_attmain { get; set; }
         public virtual DbSet<asis_tablelog> asis_tablelog { get; set; }
         public virtual DbSet<user_group> user_group { get; set; }
+        public virtual DbSet<att_help> att_help { get; set; }
+        public virtual DbSet<att_message> att_message { get; set; }
+        public virtual DbSet<att_param> att_param { get; set; }
+        public virtual DbSet<att_main> att_main { get; set; }
+        public virtual DbSet<att_sub> att_sub { get; set; }
     }
 }
