@@ -25,7 +25,6 @@ namespace DSupportWebApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<asis_attmain> asis_attmain { get; set; }
         public virtual DbSet<asis_attsub> asis_attsub { get; set; }
         public virtual DbSet<asis_controller> asis_controller { get; set; }
         public virtual DbSet<asis_controllerview> asis_controllerview { get; set; }
@@ -40,16 +39,17 @@ namespace DSupportWebApp.Models
         public virtual DbSet<asis_param> asis_param { get; set; }
         public virtual DbSet<asis_tablelist> asis_tablelist { get; set; }
         public virtual DbSet<asis_tablelistdisplay> asis_tablelistdisplay { get; set; }
-        public virtual DbSet<asis_tablelog> asis_tablelog { get; set; }
         public virtual DbSet<asis_translate> asis_translate { get; set; }
         public virtual DbSet<user_controller> user_controller { get; set; }
         public virtual DbSet<user_controllerview> user_controllerview { get; set; }
         public virtual DbSet<user_controllerviewitem> user_controllerviewitem { get; set; }
         public virtual DbSet<user_controllerviewusergroup> user_controllerviewusergroup { get; set; }
-        public virtual DbSet<user_group> user_group { get; set; }
         public virtual DbSet<user_help> user_help { get; set; }
         public virtual DbSet<user_list> user_list { get; set; }
         public virtual DbSet<user_log> user_log { get; set; }
         public virtual DbSet<user_message> user_message { get; set; }
+        public virtual DbSet<asis_attmain> asis_attmain { get; set; }
+        public virtual DbSet<asis_tablelog> asis_tablelog { get; set; }
+        public virtual DbSet<user_group> user_group { get; set; }
     }
 }

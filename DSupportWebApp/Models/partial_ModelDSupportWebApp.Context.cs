@@ -45,10 +45,7 @@
 
                     case EntityState.Deleted:
                         //asisObject.IDAttRecordOperation = 2;
-                        foreach (var prop in change.OriginalValues.PropertyNames)
-                        {
-                                AsisModelHelper.CreateChangeLog(asisObject.previousRecord,asisObject.currentRecord, asisObject.IDUser, entityName);
-                        }
+                        AsisModelHelper.CreateDeleteLog(asisObject.currentRecord, asisObject.IDUser, entityName);
                         break;
 
                     case EntityState.Modified:

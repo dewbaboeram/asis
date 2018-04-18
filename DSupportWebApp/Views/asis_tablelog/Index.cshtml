@@ -12,7 +12,13 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.IDAsisTableLog)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IDAsisTableList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IDUser)
@@ -32,7 +38,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.IDAsisTableLog)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.IDAsisTableList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IDUser)
@@ -44,12 +56,13 @@
             @Html.DisplayFor(modelItem => item.DateOperation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Logchange)
+            @*@Html.DisplayFor(modelItem => item.Logchange)*@
+            @Html.Raw(item.Logchange)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDAsisTableLog }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDAsisTableLog }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDAsisTableLog })
+            @Html.ActionLink("Edit", "Edit", new { id = item.IDAsisTableLog }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDAsisTableLog }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDAsisTableLog })
         </td>
     </tr>
 }

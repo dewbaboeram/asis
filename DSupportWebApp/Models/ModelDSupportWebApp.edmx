@@ -184,8 +184,8 @@
           <Property Name="Value" Type="varchar" MaxLength="255" />
           <Property Name="IDUserCreated" Type="int" />
           <Property Name="IDUserModified" Type="int" />
-          <Property Name="DateCreated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateModified" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Precision="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="datetime" Precision="0" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="asis_tablelist">
           <Key>
@@ -401,7 +401,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="dsupportwebappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="dsupportwebappEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="asis_attmain" EntityType="dsupportwebappModel.asis_attmain" />
           <EntitySet Name="asis_attsub" EntityType="dsupportwebappModel.asis_attsub" />
           <EntitySet Name="asis_controller" EntityType="dsupportwebappModel.asis_controller" />
           <EntitySet Name="asis_controllerview" EntityType="dsupportwebappModel.asis_controllerview" />
@@ -416,28 +415,19 @@
           <EntitySet Name="asis_param" EntityType="dsupportwebappModel.asis_param" />
           <EntitySet Name="asis_tablelist" EntityType="dsupportwebappModel.asis_tablelist" />
           <EntitySet Name="asis_tablelistdisplay" EntityType="dsupportwebappModel.asis_tablelistdisplay" />
-          <EntitySet Name="asis_tablelog" EntityType="dsupportwebappModel.asis_tablelog" />
           <EntitySet Name="asis_translate" EntityType="dsupportwebappModel.asis_translate" />
           <EntitySet Name="user_controller" EntityType="dsupportwebappModel.user_controller" />
           <EntitySet Name="user_controllerview" EntityType="dsupportwebappModel.user_controllerview" />
           <EntitySet Name="user_controllerviewitem" EntityType="dsupportwebappModel.user_controllerviewitem" />
           <EntitySet Name="user_controllerviewusergroup" EntityType="dsupportwebappModel.user_controllerviewusergroup" />
-          <EntitySet Name="user_group" EntityType="dsupportwebappModel.user_group" />
           <EntitySet Name="user_help" EntityType="dsupportwebappModel.user_help" />
           <EntitySet Name="user_list" EntityType="dsupportwebappModel.user_list" />
           <EntitySet Name="user_log" EntityType="dsupportwebappModel.user_log" />
           <EntitySet Name="user_message" EntityType="dsupportwebappModel.user_message" />
+          <EntitySet Name="asis_attmain" EntityType="dsupportwebappModel.asis_attmain" />
+          <EntitySet Name="asis_tablelog" EntityType="dsupportwebappModel.asis_tablelog" />
+          <EntitySet Name="user_group" EntityType="dsupportwebappModel.user_group" />
         </EntityContainer>
-        <EntityType Name="asis_attmain">
-          <Key>
-            <PropertyRef Name="IDAttMain" />
-          </Key>
-          <Property Name="IDAttMain" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDUserCreated" Type="Int32" />
-          <Property Name="IDUserModified" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="asis_attsub">
           <Key>
             <PropertyRef Name="IDAttSub" />
@@ -641,17 +631,6 @@
           <Property Name="DateCreated" Type="DateTime" />
           <Property Name="DateModified" Type="DateTime" />
         </EntityType>
-        <EntityType Name="asis_tablelog">
-          <Key>
-            <PropertyRef Name="IDAsisTableLog" />
-          </Key>
-          <Property Name="IDAsisTableLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDAsisTableList" Type="Int32" Nullable="false" />
-          <Property Name="RecordID" Type="Int32" Nullable="false" />
-          <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <Property Name="IDAttRecordOperation" Type="Int32" Nullable="false" />
-          <Property Name="DateOperation" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="asis_translate">
           <Key>
             <PropertyRef Name="IDAsisTranslate" />
@@ -714,18 +693,6 @@
           <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-        <EntityType Name="user_group">
-          <Key>
-            <PropertyRef Name="IDUserGroup" />
-          </Key>
-          <Property Name="IDUserGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameNL" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
-          <Property Name="NameEN" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
-          <Property Name="IDUserCreated" Type="Int32" />
-          <Property Name="IDUserModified" Type="Int32" />
-          <Property Name="DateCreated" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
-          <Property Name="DateModified" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="user_help">
           <Key>
             <PropertyRef Name="IDHelp" />
@@ -786,23 +753,50 @@
           <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="asis_attmain">
+          <Key>
+            <PropertyRef Name="IDAttMain" />
+          </Key>
+          <Property Name="IDAttMain" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="asis_tablelog">
+          <Key>
+            <PropertyRef Name="IDAsisTableLog" />
+          </Key>
+          <Property Name="IDAsisTableLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAsisTableList" Type="Int32" Nullable="false" />
+          <Property Name="RecordID" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="IDAttRecordOperation" Type="Int32" Nullable="false" />
+          <Property Name="DateOperation" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Logchange" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user_group">
+          <Key>
+            <PropertyRef Name="IDUserGroup" />
+          </Key>
+          <Property Name="IDUserGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameNL" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionNL" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="DateModified" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="dsupportwebappModelStoreContainer" CdmEntityContainer="dsupportwebappEntities">
-          <EntitySetMapping Name="asis_attmain">
-            <EntityTypeMapping TypeName="dsupportwebappModel.asis_attmain">
-              <MappingFragment StoreEntitySet="asis_attmain">
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
-                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
-                <ScalarProperty Name="IDAttMain" ColumnName="IDAttMain" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="asis_attsub">
             <EntityTypeMapping TypeName="dsupportwebappModel.asis_attsub">
               <MappingFragment StoreEntitySet="asis_attsub">
@@ -1020,18 +1014,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="asis_tablelog">
-            <EntityTypeMapping TypeName="dsupportwebappModel.asis_tablelog">
-              <MappingFragment StoreEntitySet="asis_tablelog">
-                <ScalarProperty Name="DateOperation" ColumnName="DateOperation" />
-                <ScalarProperty Name="IDAttRecordOperation" ColumnName="IDAttRecordOperation" />
-                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
-                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
-                <ScalarProperty Name="IDAsisTableList" ColumnName="IDAsisTableList" />
-                <ScalarProperty Name="IDAsisTableLog" ColumnName="IDAsisTableLog" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="asis_translate">
             <EntityTypeMapping TypeName="dsupportwebappModel.asis_translate">
               <MappingFragment StoreEntitySet="asis_translate">
@@ -1099,19 +1081,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="user_group">
-            <EntityTypeMapping TypeName="dsupportwebappModel.user_group">
-              <MappingFragment StoreEntitySet="user_group">
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
-                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
-                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
-                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
-                <ScalarProperty Name="IDUserGroup" ColumnName="IDUserGroup" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="user_help">
             <EntityTypeMapping TypeName="dsupportwebappModel.user_help">
               <MappingFragment StoreEntitySet="user_help">
@@ -1173,6 +1142,47 @@
                 <ScalarProperty Name="NameNL" ColumnName="NameNL" />
                 <ScalarProperty Name="IDAttMessageType" ColumnName="IDAttMessageType" />
                 <ScalarProperty Name="IDMessage" ColumnName="IDMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asis_attmain">
+            <EntityTypeMapping TypeName="dsupportwebappModel.asis_attmain">
+              <MappingFragment StoreEntitySet="asis_attmain">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="IDAttMain" ColumnName="IDAttMain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asis_tablelog">
+            <EntityTypeMapping TypeName="dsupportwebappModel.asis_tablelog">
+              <MappingFragment StoreEntitySet="asis_tablelog">
+                <ScalarProperty Name="Logchange" ColumnName="Logchange" />
+                <ScalarProperty Name="DateOperation" ColumnName="DateOperation" />
+                <ScalarProperty Name="IDAttRecordOperation" ColumnName="IDAttRecordOperation" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="IDAsisTableList" ColumnName="IDAsisTableList" />
+                <ScalarProperty Name="IDAsisTableLog" ColumnName="IDAsisTableLog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_group">
+            <EntityTypeMapping TypeName="dsupportwebappModel.user_group">
+              <MappingFragment StoreEntitySet="user_group">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="DescriptionEN" ColumnName="DescriptionEN" />
+                <ScalarProperty Name="DescriptionNL" ColumnName="DescriptionNL" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="NameNL" ColumnName="NameNL" />
+                <ScalarProperty Name="IDUserGroup" ColumnName="IDUserGroup" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

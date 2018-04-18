@@ -20,5 +20,6 @@ namespace DSupportWebApp.Models
         public int IDUser { get; set; }
         public int IDAttRecordOperation { get; set; }
         public System.DateTime DateOperation { get; set; }
+        //public string Logchange { get; set; }
     }
 }

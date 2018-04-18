@@ -136,7 +136,7 @@ namespace DSupportWebApp.Models
                 index++;
             }
 
-            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now, strHistory))
+            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 2, DateTime.Now, strHistory))
             {
                 return false;
             }
