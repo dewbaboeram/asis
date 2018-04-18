@@ -18,13 +18,13 @@ namespace DSupportWebApp.Models
         public Nullable<int> IDAsisModule { get; set; }
         public string TableName { get; set; }
         public string SortID { get; set; }
-        public string HasHistory { get; set; }
-        public string IsMultiLingual { get; set; }
         public string DescriptionNL { get; set; }
         public string DescriptionEN { get; set; }
-        public string IDUserCreated { get; set; }
-        public string IDUserModified { get; set; }
-        public string DateCreated { get; set; }
-        public string DateModified { get; set; }
+        public bool HasHistory { get; set; }
+        public bool IsMultiLingual { get; set; }
+        public int IDUserCreated { get; set; }
+        public int IDUserModified { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public System.DateTime DateModified { get; set; }
     }
 }

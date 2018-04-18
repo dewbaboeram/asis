@@ -16,6 +16,7 @@ namespace DSupportWebApp.Models
     {
         public int IDControllerView { get; set; }
         public Nullable<int> IDController { get; set; }
+        public string SortID { get; set; }
         public string ViewName { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }

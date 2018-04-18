@@ -16,6 +16,7 @@ namespace DSupportWebApp.Models
     {
         public int IDAsisMenuItem { get; set; }
         public Nullable<int> IDAsisMenu { get; set; }
+        public string SortID { get; set; }
         public Nullable<int> IDUserGroup { get; set; }
         public string NameNL { get; set; }
         public string NameEN { get; set; }

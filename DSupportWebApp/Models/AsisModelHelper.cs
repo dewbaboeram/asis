@@ -98,21 +98,66 @@ namespace DSupportWebApp.Models
         }
 
 
-        public static void CreateChangeLog(object previousRecord, object currentRecord, int IDAttRecordOperation, int IDUser, string tableName)
+        public static bool CreateDeleteLog(object currentRecord, int IDUser, string tableName)
         {
 
             int IDAsisTableList = GetAsisTableID(tableName);
             if (!HasHistory(IDAsisTableList))
             {
-                return; //deze tabel heeft geen history, ER UIT!!!!!
+                return false; //deze tabel heeft geen history, ER UIT!!!!!
             }
 
             //int IDUser = 1;
             //int IDAttRecordOperation = 1;
             DateTime DateOperation = DateTime.Now;
-            string lblPrevious = AsisModelHelper.GetMessage(2, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"]));
-            string lblCurrent = AsisModelHelper.GetMessage(3, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"]));
-            string LF = "\n";
+            string lblPrevious = AsisModelHelper.GetMessage(2, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
+            string lblCurrent = AsisModelHelper.GetMessage(3, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
+            string LF = "<br>";
+
+            string strHistory = "";
+
+            var index = 0;
+            int IDRecord = 0;
+            foreach (PropertyInfo prop in currentRecord.GetType().GetProperties())
+            {
+                //PropertyInfo propPrev = previousRecord.GetType().GetProperties()[index];
+                //var prevFieldName = propPrev.Name;
+                //var prevFieldValue = Convert.ToString(propPrev.GetValue(previousRecord));
+
+                var fieldName = prop.Name;
+                var fieldValue = Convert.ToString(prop.GetValue(currentRecord));
+                if (index == 0)
+                {
+                    IDRecord = Convert.ToInt32(fieldValue);
+                }
+
+                    strHistory += string.Format(lblCurrent, fieldName, fieldValue);
+                    strHistory += LF;
+                index++;
+            }
+
+            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now, strHistory))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool CreateChangeLog(object previousRecord, object currentRecord,  int IDUser, string tableName)
+        {
+
+            int IDAsisTableList = GetAsisTableID(tableName);
+            if (!HasHistory(IDAsisTableList))
+            {
+                return false; //deze tabel heeft geen history, ER UIT!!!!!
+            }
+
+            //int IDUser = 1;
+            //int IDAttRecordOperation = 1;
+            DateTime DateOperation = DateTime.Now;
+            string lblPrevious = AsisModelHelper.GetMessage(2, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
+            string lblCurrent = AsisModelHelper.GetMessage(3, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
+            string LF = "<br>";
 
             string strHistory = "";
 
@@ -143,15 +188,11 @@ namespace DSupportWebApp.Models
                 index++;
             }
 
-            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), IDAttRecordOperation, DateTime.Now, strHistory))
+            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now, strHistory))
             {
-                //RedirectToAction("Index", "AsisError", new
-                //{
-                //    IDMessage = 6,
-                //    prefix = "asis",
-                //});
+                return false;
             }
-
+            return true;
         }
 
         private static int GetAsisTableID(string tableName)

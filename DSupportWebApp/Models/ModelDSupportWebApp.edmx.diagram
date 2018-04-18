@@ -5,35 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7c026591d2b04a3ba1d479f837fc3c55" Name="Diagram1" ShowGrid="true">
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_attmain" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="dsupportwebappModel.asis_attsub" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_help" Width="1.5" PointX="6.75" PointY="4.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_language" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_menu" Width="1.5" PointX="0.75" PointY="8.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_menuitem" Width="1.5" PointX="2.75" PointY="8.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_message" Width="1.5" PointX="4.75" PointY="8.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_module" Width="1.5" PointX="8.75" PointY="5.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_param" Width="1.5" PointX="6.75" PointY="9.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelog" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_controller" Width="1.5" PointX="11.75" PointY="4.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_controllerview" Width="1.5" PointX="11.75" PointY="7.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_controllerviewitem" Width="1.5" PointX="11.75" PointY="11.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_help" Width="1.5" PointX="13.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_list" Width="1.5" PointX="0.75" PointY="13.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_log" Width="1.5" PointX="2.75" PointY="13.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_message" Width="1.5" PointX="13.75" PointY="4.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_param" Width="1.5" PointX="4.75" PointY="13.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_attmain" Width="1.5" PointX="7.375" PointY="14.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.user_group" Width="1.5" PointX="14.375" PointY="12.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_controller" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerview" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerviewitem" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerviewusergroup" Width="1.5" PointX="9.75" PointY="15.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelist" Width="1.5" PointX="16.375" PointY="0.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.trans_controllerviewusergroup" Width="1.5" PointX="14.375" PointY="8.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_translate" Width="1.5" PointX="16.375" PointY="5.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_view" Width="1.5" PointX="16.375" PointY="9.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_viewitem" Width="1.5" PointX="16.375" PointY="12.75" />
-        <EntityTypeShape EntityType="dsupportwebappModel.asis_viewusergroup" Width="1.5" PointX="12.375" PointY="16.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_controller" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerview" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerviewhelp" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerviewitem" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_controllerviewusergroup" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_language" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_menu" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_menuitem" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_message" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_module" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_param" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelist" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelistdisplay" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_tablelog" Width="1.5" PointX="10.75" PointY="4.5" />
+        <EntityTypeShape EntityType="dsupportwebappModel.asis_translate" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_controller" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_controllerview" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_controllerviewitem" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_controllerviewusergroup" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_group" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_help" Width="1.5" PointX="10.75" PointY="12.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_list" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_log" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="dsupportwebappModel.user_message" Width="1.5" PointX="14.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

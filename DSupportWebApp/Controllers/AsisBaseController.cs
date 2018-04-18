@@ -16,7 +16,7 @@ namespace DSupportWebApp.Controllers
 
         //IAsisObject
         public int IDUser => Convert.ToInt32 (Session["IDUser"]);
-        public int IDAttRecordOperation { get; set; }
+        //public int IDAttRecordOperation { get; set; }
         public object previousRecord { get; set; }
         public object currentRecord { get; set;}
 
@@ -45,26 +45,68 @@ namespace DSupportWebApp.Controllers
                 {
                     IsPostBack = ((System.Web.HttpRequestWrapper)((System.Web.HttpContextWrapper)filterContext.HttpContext).Request).HttpMethod == "POST";
 
-                    if (IsPostBack)
+                    if (!IsPostBack)
                     {
-                        var id = Convert.ToInt32(filterContext.RouteData.Values["id"]);
-                        this.previousRecord = Session["prevRecord"]; //FindAsisObjectModel(GetAsisObjectModelType().Name, id);
-                    }
-
-                    if (!IsPostBack && filterContext.ActionDescriptor.ActionName == "Edit" &&
-                        filterContext.ActionParameters.Where(n => n.Key == "id").Any())
-                    {
-                        var id = Convert.ToInt32(filterContext.ActionParameters["id"]);
-                        var asis_object = FindAsisObjectModel(GetAsisObjectModelType().Name, id);
-                        if (asis_object != null)
+                        switch (filterContext.ActionDescriptor.ActionName)
                         {
-                            BeforeEdit(asis_object);
+                            case "Edit":
+                                if (filterContext.ActionParameters.Where(n => n.Key == "id").Any())
+                                {
+                                    var id = Convert.ToInt32(filterContext.ActionParameters["id"]);
+                                    var asis_object = FindAsisObjectModel(GetAsisObjectModelType().Name, id);
+                                    if (asis_object != null)
+                                    {
+                                        BeforeEdit(asis_object);
+                                    }
+                                }
+                                break;
+
+                            case "Delete":
+                                if (filterContext.ActionParameters.Where(n => n.Key == "id").Any())
+                                {
+                                    var id = Convert.ToInt32(filterContext.ActionParameters["id"]);
+                                    var asis_object = FindAsisObjectModel(GetAsisObjectModelType().Name, id);
+                                    if (asis_object != null)
+                                    {
+                                        BeforeDelete(asis_object);
+                                    }
+                                }
+                                break;
+
+                                //default:
+
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        switch (filterContext.ActionDescriptor.ActionName)
+                        {
+                            case "Edit":
+                                var id = Convert.ToInt32(filterContext.RouteData.Values["id"]);
+                                this.previousRecord = Session["prevRecord"]; //FindAsisObjectModel(GetAsisObjectModelType().Name, id);
+                                this.currentRecord = filterContext.ActionParameters[GetAsisObjectModelType().Name];
+                                break;
+
+                            case "Delete":
+                                //var id = Convert.ToInt32(filterContext.RouteData.Values["id"]);
+                                //this.previousRecord = Session["prevRecord"]; //FindAsisObjectModel(GetAsisObjectModelType().Name, id);
+                                //this.currentRecord = filterContext.ActionParameters[GetAsisObjectModelType().Name];
+                                break;
+
                         }
                     }
                 }
             }
 
             base.OnActionExecuting(filterContext);
+        }
+
+        private void BeforeDelete(object asis_object)
+        {
+            //throw new NotImplementedException();
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -146,7 +188,7 @@ namespace DSupportWebApp.Controllers
             Session["prevRecord"] = record;
         }
 
-        internal void AfterEdit(object record, int IDAttRecordOperation, int IDUser, string tableName)
+        internal void AfterEdit(object record,  int IDUser, string tableName)
         {
 
         }

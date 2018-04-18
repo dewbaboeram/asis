@@ -199,7 +199,6 @@
     <Compile Include="Controllers\asis_controllerviewController.cs" />
     <Compile Include="Controllers\asis_controllerviewitemController.cs" />
     <Compile Include="Controllers\asis_controllerviewusergroupController.cs" />
-    <Compile Include="Controllers\asis_helpController.cs" />
     <Compile Include="Controllers\asis_languageController.cs" />
     <Compile Include="Controllers\asis_menuController.cs" />
     <Compile Include="Controllers\asis_menuitemController.cs" />
@@ -208,9 +207,6 @@
     <Compile Include="Controllers\asis_paramController.cs" />
     <Compile Include="Controllers\asis_tablelistController.cs" />
     <Compile Include="Controllers\asis_tablelogController.cs" />
-    <Compile Include="Controllers\asis_viewController.cs" />
-    <Compile Include="Controllers\asis_viewitemController.cs" />
-    <Compile Include="Controllers\asis_viewusergroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\user_groupController.cs" />
@@ -232,13 +228,13 @@
     <Compile Include="Models\asis_controllerview.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\asis_controllerviewhelp.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\asis_controllerviewitem.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_controllerviewusergroup.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asis_help.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_language.cs">
@@ -262,19 +258,13 @@
     <Compile Include="Models\asis_tablelist.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\asis_tablelistdisplay.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\asis_tablelog.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_translate.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asis_view.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asis_viewitem.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asis_viewusergroup.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -298,9 +288,6 @@
     <Compile Include="Models\partial_asis_tablelog.cs" />
     <Compile Include="Models\partial_ModelDSupportWebApp.Context.cs" />
     <Compile Include="Models\partial_user_group.cs" />
-    <Compile Include="Models\trans_controllerviewusergroup.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\user_controller.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -308,6 +295,9 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_controllerviewusergroup.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_group.cs">
@@ -323,9 +313,6 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_message.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\user_param.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

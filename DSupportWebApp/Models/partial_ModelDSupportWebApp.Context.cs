@@ -10,7 +10,7 @@
         Type GetAsisObjectModelType();
         object FindAsisObjectModel(string controllerName, int id);
         int IDUser { get; }
-        int IDAttRecordOperation { get; set; }
+        //int IDAttRecordOperation { get; set; }
         object currentRecord { get; set; }
         object previousRecord { get; set; }
     }
@@ -40,20 +40,20 @@
                 switch (change.State)
                 {
                     case EntityState.Added:
-                        asisObject.IDAttRecordOperation = 3;
+                        //asisObject.IDAttRecordOperation = 3;
                         break;
 
                     case EntityState.Deleted:
-                        asisObject.IDAttRecordOperation = 2;
+                        //asisObject.IDAttRecordOperation = 2;
                         foreach (var prop in change.OriginalValues.PropertyNames)
                         {
-                                AsisModelHelper.CreateChangeLog(asisObject.previousRecord,asisObject.currentRecord , asisObject.IDAttRecordOperation, asisObject.IDUser, entityName);
+                                AsisModelHelper.CreateChangeLog(asisObject.previousRecord,asisObject.currentRecord, asisObject.IDUser, entityName);
                         }
                         break;
 
                     case EntityState.Modified:
-                        asisObject.IDAttRecordOperation = 1;
-                        AsisModelHelper.CreateChangeLog(asisObject.previousRecord, asisObject.currentRecord , asisObject.IDAttRecordOperation, asisObject.IDUser, entityName);
+                        //asisObject.IDAttRecordOperation = 1;
+                        AsisModelHelper.CreateChangeLog(asisObject.previousRecord, asisObject.currentRecord , asisObject.IDUser, entityName);
 
 
                         //foreach (var prop in change.OriginalValues.PropertyNames)

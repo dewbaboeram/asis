@@ -17,10 +17,10 @@ namespace DSupportWebApp.Models
         public int IDAsisTranslate { get; set; }
         public string WordsNL { get; set; }
         public string WordsEN { get; set; }
-        public Nullable<int> IsStandard { get; set; }
+        public bool IsStandard { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public string DateCreated { get; set; }
-        public string DateModified { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public System.DateTime DateModified { get; set; }
     }
 }

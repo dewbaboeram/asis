@@ -98,7 +98,7 @@ namespace DSupportWebApp.Controllers
                 //base.BeforeSave(asis_attmain);
                 db.SaveChanges();
 
-                base.AfterEdit(asis_attmain, 1, Convert.ToInt32(Session["IDUser"]), "asis_attmain");
+                //base.AfterEdit(asis_attmain, 1, Convert.ToInt32(Session["IDUser"]), "asis_attmain");
 
                 return RedirectToAction("Index");
             }

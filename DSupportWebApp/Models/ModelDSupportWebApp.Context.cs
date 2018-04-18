@@ -25,34 +25,31 @@ namespace DSupportWebApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<asis_attmain> asis_attmain { get; set; }
         public virtual DbSet<asis_attsub> asis_attsub { get; set; }
-        public virtual DbSet<asis_help> asis_help { get; set; }
+        public virtual DbSet<asis_controller> asis_controller { get; set; }
+        public virtual DbSet<asis_controllerview> asis_controllerview { get; set; }
+        public virtual DbSet<asis_controllerviewhelp> asis_controllerviewhelp { get; set; }
+        public virtual DbSet<asis_controllerviewitem> asis_controllerviewitem { get; set; }
+        public virtual DbSet<asis_controllerviewusergroup> asis_controllerviewusergroup { get; set; }
         public virtual DbSet<asis_language> asis_language { get; set; }
         public virtual DbSet<asis_menu> asis_menu { get; set; }
         public virtual DbSet<asis_menuitem> asis_menuitem { get; set; }
         public virtual DbSet<asis_message> asis_message { get; set; }
         public virtual DbSet<asis_module> asis_module { get; set; }
         public virtual DbSet<asis_param> asis_param { get; set; }
+        public virtual DbSet<asis_tablelist> asis_tablelist { get; set; }
+        public virtual DbSet<asis_tablelistdisplay> asis_tablelistdisplay { get; set; }
         public virtual DbSet<asis_tablelog> asis_tablelog { get; set; }
+        public virtual DbSet<asis_translate> asis_translate { get; set; }
         public virtual DbSet<user_controller> user_controller { get; set; }
         public virtual DbSet<user_controllerview> user_controllerview { get; set; }
         public virtual DbSet<user_controllerviewitem> user_controllerviewitem { get; set; }
+        public virtual DbSet<user_controllerviewusergroup> user_controllerviewusergroup { get; set; }
+        public virtual DbSet<user_group> user_group { get; set; }
         public virtual DbSet<user_help> user_help { get; set; }
         public virtual DbSet<user_list> user_list { get; set; }
         public virtual DbSet<user_log> user_log { get; set; }
         public virtual DbSet<user_message> user_message { get; set; }
-        public virtual DbSet<user_param> user_param { get; set; }
-        public virtual DbSet<asis_attmain> asis_attmain { get; set; }
-        public virtual DbSet<user_group> user_group { get; set; }
-        public virtual DbSet<asis_controller> asis_controller { get; set; }
-        public virtual DbSet<asis_controllerview> asis_controllerview { get; set; }
-        public virtual DbSet<asis_controllerviewitem> asis_controllerviewitem { get; set; }
-        public virtual DbSet<asis_controllerviewusergroup> asis_controllerviewusergroup { get; set; }
-        public virtual DbSet<asis_tablelist> asis_tablelist { get; set; }
-        public virtual DbSet<trans_controllerviewusergroup> trans_controllerviewusergroup { get; set; }
-        public virtual DbSet<asis_translate> asis_translate { get; set; }
-        public virtual DbSet<asis_view> asis_view { get; set; }
-        public virtual DbSet<asis_viewitem> asis_viewitem { get; set; }
-        public virtual DbSet<asis_viewusergroup> asis_viewusergroup { get; set; }
     }
 }

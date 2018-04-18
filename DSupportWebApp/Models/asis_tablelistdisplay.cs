@@ -12,14 +12,18 @@ namespace DSupportWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class trans_controllerviewusergroup
+    public partial class asis_tablelistdisplay
     {
-        public int IDControllerViewUserGroup { get; set; }
-        public Nullable<int> IDControllerView { get; set; }
-        public Nullable<int> IDUserGroup { get; set; }
+        public int IDAsisTableListDisplay { get; set; }
+        public Nullable<int> IDAsisTableList { get; set; }
+        public string FieldName { get; set; }
+        public string DisplayNL { get; set; }
+        public string DisplayEN { get; set; }
+        public string HelpNL { get; set; }
+        public string HelpEN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

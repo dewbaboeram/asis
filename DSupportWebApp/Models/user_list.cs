@@ -15,7 +15,7 @@ namespace DSupportWebApp.Models
     public partial class user_list
     {
         public int IDUser { get; set; }
-        public string IDRelPerson { get; set; }
+        public Nullable<int> IDRelPerson { get; set; }
         public Nullable<int> IDUserGroup { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

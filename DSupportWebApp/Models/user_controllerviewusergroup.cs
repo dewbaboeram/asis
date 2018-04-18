@@ -12,13 +12,13 @@ namespace DSupportWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class asis_viewusergroup
+    public partial class user_controllerviewusergroup
     {
-        public int IDViewUserGroup { get; set; }
-        public int IDView { get; set; }
-        public int IDUserGroup { get; set; }
-        public int IDUserCreated { get; set; }
-        public int IDUserModified { get; set; }
+        public int IDControllerViewUserGroup { get; set; }
+        public Nullable<int> IDControllerView { get; set; }
+        public Nullable<int> IDUserGroup { get; set; }
+        public Nullable<int> IDUserCreated { get; set; }
+        public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateModified { get; set; }
     }
