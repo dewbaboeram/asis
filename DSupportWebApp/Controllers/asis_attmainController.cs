@@ -14,6 +14,9 @@ namespace DSupportWebApp.Controllers
     {
         public override Type GetAsisObjectModelType()
         {
+            ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, "0");
+            ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "1");
+
             base.GetAsisObjectModelType();
             return typeof(asis_attmain);
         }
@@ -22,7 +25,9 @@ namespace DSupportWebApp.Controllers
         // GET: asis_attmain
         public ActionResult Index()
         {
-             return View(db.asis_attmain.ToList());
+            //ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, 0);
+            //ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, 1);
+            return View(db.asis_attmain.ToList());
         }
 
         // GET: asis_attmain/Details/5

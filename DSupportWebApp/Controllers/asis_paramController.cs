@@ -21,7 +21,9 @@ namespace DSupportWebApp.Controllers
         // GET: asis_param
         public ActionResult Index()
         {
-           var result = View(db.asis_param.ToList());
+            
+
+            var result = View(db.asis_param.ToList());
             //return base.Intialize(result);
             return View();
         }

@@ -9,12 +9,21 @@ namespace DSupportWebApp.Models
     public partial class asis_attmain
     {
         [Required]
-        [Display(Name ="Kenmerk")]
         public string NameNL { get; set; }
 
         [Required]
-        [Display(Name = "Attribute")]
         public string NameEN { get; set; }
+
+         public string Name {
+            get
+            {
+                return AsisModelHelper.GetFieldValue("Name", this) as string;
+            }
+
+            set { }
+        }
+
+        
 
     }
 }

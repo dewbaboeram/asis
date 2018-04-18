@@ -22,6 +22,8 @@ namespace DSupportWebApp.Controllers
 
         public  dsupportwebappEntities db = new dsupportwebappEntities();
 
+        public string Prefix { get { return db.asisObject.ToString().Substring(0, db.asisObject.ToString().IndexOf("_")); }  }
+
         public AsisBaseController() {
             db.asisObject = this;
         }
@@ -29,9 +31,9 @@ namespace DSupportWebApp.Controllers
 
 
         // GET: AsisBase
-        public ActionResult Intialize(ActionResult result, string prefix, int IDControllerView)
+        public ActionResult Intialize(ActionResult result, string prefix, string controllerName, string actionViewName)
         {
-            //TranslateController(prefix, IDControllerView);
+            TranslateController(prefix, controllerName, actionViewName);
             return CheckAuthorisation(result);
         }
 
@@ -39,7 +41,7 @@ namespace DSupportWebApp.Controllers
         {
             if (GetAsisObjectModelType() != null)
             {
-                Intialize(null, "asis", 1);
+                Intialize(null, Prefix, filterContext.ActionDescriptor.ControllerDescriptor.ControllerName, filterContext.ActionDescriptor.ActionName);
 
                 if (filterContext.ActionParameters.Count > 0)
                 {
@@ -127,29 +129,23 @@ namespace DSupportWebApp.Controllers
             base.OnActionExecuted(filterContext);
         }
 
-        private void TranslateController(string prefix, int IDControllerView)
+        private void TranslateController(string prefix, string controllerName, string actionViewName)
         {
             //ViewBag.EditText = "Bewerk";
             //ViewBag.DeleteText = "Verwijder";
             //ViewBag.BackToListText = "Terug naar de lijst";
             //object ds = null;
-            string strSQL = "";
-            strSQL += "SELECT Name{0} ";
-            strSQL += "FROM {1}_ControllerViewTranslate";
-            strSQL += "WHERE IDControllerView={2} ";
-            strSQL += "ORDER BY SortID";
-            strSQL = string.Format(strSQL, Session["asisLangCode"] as string, prefix, IDControllerView);
-            //var ds = AsisModelHelper.GetDataSet(strSQL);
 
-            ViewBag.label = new List<string>();
-
-            //ViewBag.label[0] = ds.jdjdj;
-            // convert object tot arraylist
-            //int Total = 10;
-            //string arlist[Total];
-
-            //// add records in an arraylist
-            //ViewBag.Collection = arlist;
+            var result = (
+                from c in db.asis_controller where c.ControllerName == controllerName
+                    from v in db.asis_controllerview
+                    where v.ViewName == actionViewName && v.IDController == c.IDController
+                        from i in db.asis_controllerviewitem
+                        where i.IDControllerView == v.IDControllerView 
+                        select i).ToList();
+            ViewBag.Translation = result;
+       
+            
 
         }
 

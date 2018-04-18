@@ -12,6 +12,38 @@ namespace DSupportWebApp.Models
     {
         private static dsupportwebappEntities db = new dsupportwebappEntities();
 
+        //public static string GetViewDisplayLabel(int IDRecord)
+        //{
+        //    var label = db.asis_controllerviewitem.Where(i => i.IDControllerViewItem == IDRecord).
+        //        Select(l => l).SingleOrDefault();
+
+        //    return GetFieldValue("Name", label.) as string;
+        //}
+
+        public static string GetViewBagLabel(dynamic ViewBag, string IDSort)
+        {
+            var translate = ViewBag.Translation as List<asis_controllerviewitem>;
+            var result = translate.Where(n => n.SortID == IDSort).SingleOrDefault();
+           return GetFieldValue("Name", result) as string;
+        }
+
+        public static string GetDisplayColumnName(int IDDisplay)
+        {
+            var label = db.asis_tablelistdisplay.Where(i => i.IDAsisTableListDisplay == IDDisplay).
+                Select(l => l).SingleOrDefault();
+
+            return GetDisplayColumnValue(label.FieldName, label) as string;
+        }
+
+        internal static object GetDisplayColumnValue(string v, object asisObject)
+        {
+            var propName = AsisModelHelper.GetFieldName("Display");
+            var propObject = asisObject;
+            var propInfo = propObject.GetType().GetProperty(propName);
+            var result = propInfo.GetValue(propObject);
+
+            return result;
+        }
         public static string GetAsisLanguageCode()
         {
             //IDLanguage=1 in tabel asis_language waarin de gegevens voor de standaardtaal zijn opgenomen: NL en nl-NL
@@ -19,6 +51,23 @@ namespace DSupportWebApp.Models
             //asis_language.code=NL
             var AsisLangCode = db.asis_language.Where(i => i.IDAsisLanguage == IDLanguageCode).Select(l => l.Code).SingleOrDefault();
             return AsisLangCode;
+        }
+
+        internal static object GetFieldValue(string v, object asisObject)
+        {
+            var propName = AsisModelHelper.GetFieldName(v);
+            var propObject = asisObject;
+            var propInfo = propObject.GetType().GetProperty(propName);
+            var result = propInfo.GetValue(propObject);
+
+            return result;
+        }
+
+        internal static string GetFieldName(string v)
+        {
+            var result = v + HttpContext.Current.Session["asisLangCode"];
+            return result;
+
         }
 
         public static string GetAsisLanguageCulture()

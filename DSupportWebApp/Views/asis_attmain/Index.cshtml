@@ -1,23 +1,30 @@
 ﻿@model IEnumerable<DSupportWebApp.Models.asis_attmain>
+@using DSupportWebApp.Models;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, "0");
+    ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "1");
+    string strCreateNew = ViewBag.CreateNew;
 }
-
-<h2>Index</h2>
+    
+<h2>@(ViewBag.Title)</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @{ Html.ActionLink(strCreateNew, "Create"); }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NameNL)
+            @*@Html.LabelFor(model => model.Name, "MijnLabel", null)*@
+            @*@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "" })*@
+            @Html.LabelFor(model => model.First().Name, AsisModelHelper.GetDisplayColumnName(1), htmlAttributes: new { @class = "" })
+
+
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.NameEN)
-        </th>
-        <th>
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.IDUserCreated)
         </th>
         <th>
@@ -28,19 +35,19 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateModified)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.NameNL)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.NameEN)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.IDUserCreated)
         </td>
         <td>
@@ -51,7 +58,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateModified)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IDAttMain }) |
             @Html.ActionLink("Details", "Details", new { id=item.IDAttMain }) |
