@@ -12,19 +12,25 @@ namespace DSupportWebApp.Models
     {
         private static dsupportwebappEntities db = new dsupportwebappEntities();
 
-        //public static string GetViewDisplayLabel(int IDRecord)
+        //public static string GetViewBagLabel(dynamic ViewBag, string IDSort)
         //{
-        //    var label = db.asis_controllerviewitem.Where(i => i.IDControllerViewItem == IDRecord).
-        //        Select(l => l).SingleOrDefault();
-
-        //    return GetFieldValue("Name", label.) as string;
+        //    var translate = ViewBag.Translation as List<asis_controllerviewitem>;
+        //    var result = translate.Where(n => n.SortID == IDSort).SingleOrDefault();
+        //   return GetFieldValue("Name", result) as string;
         //}
 
-        public static string GetViewBagLabel(dynamic ViewBag, string IDSort)
+        public static string GetViewBagLabel(dynamic ViewBag, string defaultValue, string IDSort)
         {
             var translate = ViewBag.Translation as List<asis_controllerviewitem>;
-            var result = translate.Where(n => n.SortID == IDSort).SingleOrDefault();
-           return GetFieldValue("Name", result) as string;
+            if (translate != null && translate.Count() > 0)
+            {
+                var result = translate.Where(n => n.SortID == IDSort).SingleOrDefault();
+                if (result != null)
+                {
+                    return GetFieldValue("Name", result) as string;
+                }
+            }
+            return defaultValue;
         }
 
         public static string GetDisplayColumnName(int IDDisplay)

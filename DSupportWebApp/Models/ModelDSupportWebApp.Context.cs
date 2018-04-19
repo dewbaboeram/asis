@@ -38,7 +38,6 @@ namespace DSupportWebApp.Models
         public virtual DbSet<asis_module> asis_module { get; set; }
         public virtual DbSet<asis_param> asis_param { get; set; }
         public virtual DbSet<asis_tablelist> asis_tablelist { get; set; }
-        public virtual DbSet<asis_tablelistdisplay> asis_tablelistdisplay { get; set; }
         public virtual DbSet<asis_translate> asis_translate { get; set; }
         public virtual DbSet<user_controller> user_controller { get; set; }
         public virtual DbSet<user_controllerview> user_controllerview { get; set; }
@@ -56,5 +55,6 @@ namespace DSupportWebApp.Models
         public virtual DbSet<att_param> att_param { get; set; }
         public virtual DbSet<att_main> att_main { get; set; }
         public virtual DbSet<att_sub> att_sub { get; set; }
+        public virtual DbSet<asis_tablelistdisplay> asis_tablelistdisplay { get; set; }
     }
 }

@@ -111,30 +111,10 @@ namespace DSupportWebApp.Controllers
             //throw new NotImplementedException();
         }
 
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
 
-            if (GetAsisObjectModelType() != null)
-            {
-                if (IsPostBack && filterContext.ActionDescriptor.ActionName == "Edit")
-                {
-                    //var asis_object = ((System.Web.Mvc.ViewResultBase)filterContext.Result).Model;
-                    //if (asis_object != null)
-                    //{
-                    //    AfterEdit(asis_object, 1, Convert.ToInt32(Session["IDUser"]), filterContext.ActionDescriptor.ControllerDescriptor.ControllerName /*b.v.: "asis_param"*/);
-                    //}
-                }
-            }
-
-            base.OnActionExecuted(filterContext);
-        }
 
         private void TranslateController(string prefix, string controllerName, string actionViewName)
         {
-            //ViewBag.EditText = "Bewerk";
-            //ViewBag.DeleteText = "Verwijder";
-            //ViewBag.BackToListText = "Terug naar de lijst";
-            //object ds = null;
 
             var result = (
                 from c in db.asis_controller where c.ControllerName == controllerName
@@ -144,9 +124,6 @@ namespace DSupportWebApp.Controllers
                         where i.IDControllerView == v.IDControllerView 
                         select i).ToList();
             ViewBag.Translation = result;
-       
-            
-
         }
 
 

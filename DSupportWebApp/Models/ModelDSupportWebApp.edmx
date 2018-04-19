@@ -10,8 +10,8 @@
             <PropertyRef Name="IDAttMain" />
           </Key>
           <Property Name="IDAttMain" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameNL" Type="varchar" MaxLength="255" />
-          <Property Name="NameEN" Type="varchar" MaxLength="255" />
+          <Property Name="NameNL" Type="varchar" MaxLength="500" />
+          <Property Name="NameEN" Type="varchar" MaxLength="500" />
           <Property Name="IDUserCreated" Type="int" />
           <Property Name="IDUserModified" Type="int" />
           <Property Name="DateCreated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -23,9 +23,9 @@
           </Key>
           <Property Name="IDAttSub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDAttMain" Type="int" />
-          <Property Name="NameNL" Type="varchar" MaxLength="255" />
-          <Property Name="NameEN" Type="varchar" MaxLength="255" />
-          <Property Name="SortID" Type="varchar" MaxLength="50" />
+          <Property Name="NameNL" Type="varchar" MaxLength="500" />
+          <Property Name="NameEN" Type="varchar" MaxLength="500" />
+          <Property Name="SortID" Type="varchar" MaxLength="10" />
           <Property Name="IDUserCreated" Type="int" />
           <Property Name="IDUserModified" Type="int" />
           <Property Name="DateCreated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -210,6 +210,7 @@
           </Key>
           <Property Name="IDAsisTableListDisplay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDAsisTableList" Type="int" />
+          <Property Name="SortID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="FieldName" Type="varchar" MaxLength="255" />
           <Property Name="DisplayNL" Type="varchar" MaxLength="255" />
           <Property Name="DisplayEN" Type="varchar" MaxLength="255" />
@@ -561,7 +562,6 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
           <EntitySet Name="asis_module" EntityType="dsupportwebappModel.asis_module" />
           <EntitySet Name="asis_param" EntityType="dsupportwebappModel.asis_param" />
           <EntitySet Name="asis_tablelist" EntityType="dsupportwebappModel.asis_tablelist" />
-          <EntitySet Name="asis_tablelistdisplay" EntityType="dsupportwebappModel.asis_tablelistdisplay" />
           <EntitySet Name="asis_translate" EntityType="dsupportwebappModel.asis_translate" />
           <EntitySet Name="user_controller" EntityType="dsupportwebappModel.user_controller" />
           <EntitySet Name="user_controllerview" EntityType="dsupportwebappModel.user_controllerview" />
@@ -579,6 +579,7 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
           <EntitySet Name="att_param" EntityType="dsupportwebappModel.att_param" />
           <EntitySet Name="att_main" EntityType="dsupportwebappModel.att_main" />
           <EntitySet Name="att_sub" EntityType="dsupportwebappModel.att_sub" />
+          <EntitySet Name="asis_tablelistdisplay" EntityType="dsupportwebappModel.asis_tablelistdisplay" />
         </EntityContainer>
         <EntityType Name="asis_attsub">
           <Key>
@@ -766,22 +767,6 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
           <Property Name="IDUserModified" Type="Int32" Nullable="false" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="asis_tablelistdisplay">
-          <Key>
-            <PropertyRef Name="IDAsisTableListDisplay" />
-          </Key>
-          <Property Name="IDAsisTableListDisplay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDAsisTableList" Type="Int32" />
-          <Property Name="FieldName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="DisplayNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="DisplayEN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="HelpNL" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="HelpEN" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="IDUserCreated" Type="Int32" />
-          <Property Name="IDUserModified" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" />
-          <Property Name="DateModified" Type="DateTime" />
         </EntityType>
         <EntityType Name="asis_translate">
           <Key>
@@ -1020,6 +1005,23 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
           <Property Name="DateCreated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateModified" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="asis_tablelistdisplay">
+          <Key>
+            <PropertyRef Name="IDAsisTableListDisplay" />
+          </Key>
+          <Property Name="IDAsisTableListDisplay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAsisTableList" Type="Int32" />
+          <Property Name="SortID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FieldName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayNL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayEN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HelpNL" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="HelpEN" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="IDUserCreated" Type="Int32" />
+          <Property Name="IDUserModified" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateModified" Type="DateTime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1223,23 +1225,6 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
                 <ScalarProperty Name="TableName" ColumnName="TableName" />
                 <ScalarProperty Name="IDAsisModule" ColumnName="IDAsisModule" />
                 <ScalarProperty Name="IDAsisTableList" ColumnName="IDAsisTableList" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="asis_tablelistdisplay">
-            <EntityTypeMapping TypeName="dsupportwebappModel.asis_tablelistdisplay">
-              <MappingFragment StoreEntitySet="asis_tablelistdisplay">
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
-                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
-                <ScalarProperty Name="HelpEN" ColumnName="HelpEN" />
-                <ScalarProperty Name="HelpNL" ColumnName="HelpNL" />
-                <ScalarProperty Name="DisplayEN" ColumnName="DisplayEN" />
-                <ScalarProperty Name="DisplayNL" ColumnName="DisplayNL" />
-                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
-                <ScalarProperty Name="IDAsisTableList" ColumnName="IDAsisTableList" />
-                <ScalarProperty Name="IDAsisTableListDisplay" ColumnName="IDAsisTableListDisplay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1482,6 +1467,24 @@ FROM `att_sub` AS `att_sub`</DefiningQuery>
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
                 <ScalarProperty Name="IDAttMain" ColumnName="IDAttMain" />
                 <ScalarProperty Name="IDAttSub" ColumnName="IDAttSub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asis_tablelistdisplay">
+            <EntityTypeMapping TypeName="dsupportwebappModel.asis_tablelistdisplay">
+              <MappingFragment StoreEntitySet="asis_tablelistdisplay">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IDUserModified" ColumnName="IDUserModified" />
+                <ScalarProperty Name="IDUserCreated" ColumnName="IDUserCreated" />
+                <ScalarProperty Name="HelpEN" ColumnName="HelpEN" />
+                <ScalarProperty Name="HelpNL" ColumnName="HelpNL" />
+                <ScalarProperty Name="DisplayEN" ColumnName="DisplayEN" />
+                <ScalarProperty Name="DisplayNL" ColumnName="DisplayNL" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="SortID" ColumnName="SortID" />
+                <ScalarProperty Name="IDAsisTableList" ColumnName="IDAsisTableList" />
+                <ScalarProperty Name="IDAsisTableListDisplay" ColumnName="IDAsisTableListDisplay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

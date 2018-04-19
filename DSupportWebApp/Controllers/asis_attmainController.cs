@@ -14,8 +14,8 @@ namespace DSupportWebApp.Controllers
     {
         public override Type GetAsisObjectModelType()
         {
-            ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, "0");
-            ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "1");
+            //ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, "0");
+            //ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "1");
 
             base.GetAsisObjectModelType();
             return typeof(asis_attmain);

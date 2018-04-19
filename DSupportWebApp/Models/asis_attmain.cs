@@ -21,7 +21,5 @@ namespace DSupportWebApp.Models
         public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateModified { get; set; }
-
-       
     }
 }

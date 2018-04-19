@@ -16,6 +16,7 @@ namespace DSupportWebApp.Models
     {
         public int IDAsisTableListDisplay { get; set; }
         public Nullable<int> IDAsisTableList { get; set; }
+        public string SortID { get; set; }
         public string FieldName { get; set; }
         public string DisplayNL { get; set; }
         public string DisplayEN { get; set; }
