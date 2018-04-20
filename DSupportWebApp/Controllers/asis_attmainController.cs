@@ -12,10 +12,8 @@ namespace DSupportWebApp.Controllers
 {
     public class asis_attmainController : AsisBaseController
     {
-        public override Type GetAsisObjectModelType()
+          public override Type GetAsisObjectModelType()
         {
-            //ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, "0");
-            //ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "1");
 
             base.GetAsisObjectModelType();
             return typeof(asis_attmain);
@@ -25,8 +23,6 @@ namespace DSupportWebApp.Controllers
         // GET: asis_attmain
         public ActionResult Index()
         {
-            //ViewBag.Title = AsisModelHelper.GetViewBagLabel(ViewBag, 0);
-            //ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, 1);
             return View(db.asis_attmain.ToList());
         }
 
@@ -56,7 +52,7 @@ namespace DSupportWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDAtMain,NameNL,NameEN,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_attmain asis_attmain)
+        public ActionResult Create([Bind(Include = "IDAttMain,Name_NL,Name_EN,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_attmain asis_attmain)
         {
             if (ModelState.IsValid)
             {
@@ -75,17 +71,11 @@ namespace DSupportWebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            ViewBag.user_list = db.user_list.Select(u => new SelectListItem {Value = u.IDUser.ToString(), Text = u.Username}).ToList();
-
             asis_attmain asis_attmain = db.asis_attmain.Find(id);
             if (asis_attmain == null)
             {
                 return HttpNotFound();
             }
-
-            base.BeforeEdit(asis_attmain);
-
             return View(asis_attmain);
         }
 
@@ -94,17 +84,12 @@ namespace DSupportWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDAttMain,NameNL,NameEN,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_attmain asis_attmain)
+        public ActionResult Edit([Bind(Include = "IDAttMain,Name_NL,Name_EN,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_attmain asis_attmain)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(asis_attmain).State = EntityState.Modified;
-
-                //base.BeforeSave(asis_attmain);
                 db.SaveChanges();
-
-                //base.AfterEdit(asis_attmain, 1, Convert.ToInt32(Session["IDUser"]), "asis_attmain");
-
                 return RedirectToAction("Index");
             }
             return View(asis_attmain);

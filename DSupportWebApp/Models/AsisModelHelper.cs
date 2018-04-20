@@ -12,13 +12,6 @@ namespace DSupportWebApp.Models
     {
         private static dsupportwebappEntities db = new dsupportwebappEntities();
 
-        //public static string GetViewBagLabel(dynamic ViewBag, string IDSort)
-        //{
-        //    var translate = ViewBag.Translation as List<asis_controllerviewitem>;
-        //    var result = translate.Where(n => n.SortID == IDSort).SingleOrDefault();
-        //   return GetFieldValue("Name", result) as string;
-        //}
-
         public static string GetViewBagLabel(dynamic ViewBag, string defaultValue, string IDSort)
         {
             var translate = ViewBag.Translation as List<asis_controllerviewitem>;
@@ -71,7 +64,7 @@ namespace DSupportWebApp.Models
 
         internal static string GetFieldName(string v)
         {
-            var result = v + HttpContext.Current.Session["asisLangCode"];
+            var result = v + "_" + HttpContext.Current.Session["asisLangCode"];
             return result;
 
         }
@@ -88,7 +81,7 @@ namespace DSupportWebApp.Models
         public static string GetMessage(int IDMessage, string prefix, string asisLangCode, object arg0 = null) //arg0 als de message aan format heeft die een waarde vervangt
         {
             var tableName = string.Format("{0}_message", prefix);
-            var fieldName = string.Format("Name{0}", asisLangCode);
+            var fieldName = string.Format("Name_{0}", asisLangCode);
             var sql = string.Format("select * from {1} where IDMessage={2}", fieldName, tableName, IDMessage);
             var par = new object[] { 0 };
             var data = db.Database.SqlQuery(Type.GetType(string.Format("{0}.Models.{1}_message", HttpContext.Current.Session["AppName"], prefix)), sql, par).ToListAsync();
@@ -137,11 +130,6 @@ namespace DSupportWebApp.Models
 
         public static object GetAsisFieldName(object model, string fieldName)
         {
-            //var propObject = data.Result[0];
-            //var propInfo = propObject.GetType().GetProperty(fieldName);
-            //var message = propInfo.GetValue(propObject);
-
-
             return fieldName;
         }
 
@@ -162,8 +150,10 @@ namespace DSupportWebApp.Models
                 return false; //deze tabel heeft geen history, ER UIT!!!!!
             }
 
-            //int IDUser = 1;
-            //int IDAttRecordOperation = 1;
+            var IDRecord = Convert.ToInt32(currentRecord.GetType().GetProperties()[0].GetValue(currentRecord));
+            int IDAsisTableLog = SaveAsisTablelistLog(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now);
+           
+            //int IDAttRecordOperation = 2;
             DateTime DateOperation = DateTime.Now;
             string lblPrevious = AsisModelHelper.GetMessage(2, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
             string lblCurrent = AsisModelHelper.GetMessage(3, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
@@ -171,43 +161,48 @@ namespace DSupportWebApp.Models
 
             string strHistory = "";
 
-            var index = 0;
-            int IDRecord = 0;
+            var index = 0; 
             foreach (PropertyInfo prop in currentRecord.GetType().GetProperties())
             {
-                //PropertyInfo propPrev = previousRecord.GetType().GetProperties()[index];
-                //var prevFieldName = propPrev.Name;
-                //var prevFieldValue = Convert.ToString(propPrev.GetValue(previousRecord));
-
                 var fieldName = prop.Name;
+                var afterfieldValue = Convert.ToString(prop.GetValue(currentRecord));
                 var fieldValue = Convert.ToString(prop.GetValue(currentRecord));
+
                 if (index == 0)
                 {
                     IDRecord = Convert.ToInt32(fieldValue);
                 }
 
-                    strHistory += string.Format(lblCurrent, fieldName, fieldValue);
-                    strHistory += LF;
+                if (!SaveAsisTablelistLogchange(IDAsisTableLog, fieldName, "", afterfieldValue, DateTime.Now))
+                {
+                    return false;
+                }
+                strHistory += string.Format(lblCurrent, fieldName, fieldValue);
+                strHistory += LF;
                 index++;
             }
 
-            if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 2, DateTime.Now, strHistory))
-            {
-                return false;
-            }
+            //if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 2, DateTime.Now, strHistory))
+            //{
+            //    return false;
+            //}
+
+
             return true;
         }
 
         public static bool CreateChangeLog(object previousRecord, object currentRecord,  int IDUser, string tableName)
         {
-
+            
             int IDAsisTableList = GetAsisTableID(tableName);
             if (!HasHistory(IDAsisTableList))
             {
                 return false; //deze tabel heeft geen history, ER UIT!!!!!
             }
 
-            //int IDUser = 1;
+            var IDRecord = Convert.ToInt32(currentRecord.GetType().GetProperties()[0].GetValue(currentRecord));  
+            int IDAsisTableLog = SaveAsisTablelistLog(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now);
+
             //int IDAttRecordOperation = 1;
             DateTime DateOperation = DateTime.Now;
             string lblPrevious = AsisModelHelper.GetMessage(2, "asis", Convert.ToString(HttpContext.Current.Session["asisLangCode"])) + ": ";
@@ -216,37 +211,39 @@ namespace DSupportWebApp.Models
 
             string strHistory = "";
 
-            var index = 0;
-            int IDRecord = 0;
+            var index = 0;;
             foreach (PropertyInfo prop in currentRecord.GetType().GetProperties())
             {
                 PropertyInfo propPrev = previousRecord.GetType().GetProperties()[index];
-                var prevFieldName = propPrev.Name;
-                var prevFieldValue = Convert.ToString(propPrev.GetValue(previousRecord));
+                var fieldName = propPrev.Name;
+                var beforeFieldValue = Convert.ToString(propPrev.GetValue(previousRecord));
+                var afterfieldValue = Convert.ToString(prop.GetValue(currentRecord));
 
-                var fieldName = prop.Name;
-                var fieldValue = Convert.ToString(prop.GetValue(currentRecord));
-                if (index == 0)
-                {
-                    IDRecord = Convert.ToInt32(fieldValue);
-                }
-
-                bool isModified = (fieldValue != prevFieldValue);
+                bool isModified = (beforeFieldValue != afterfieldValue);
                 if (isModified)
                 {
-                    strHistory += string.Format(lblPrevious, prevFieldName, prevFieldValue);
+                    strHistory += string.Format(lblPrevious, fieldName, beforeFieldValue);
                     strHistory += LF;
-                    strHistory += string.Format(lblCurrent, fieldName, fieldValue);
+                    strHistory += string.Format(lblCurrent, fieldName, afterfieldValue);
                     strHistory += LF;
+
+                    if (!SaveAsisTablelistLogchange(IDAsisTableLog, fieldName, beforeFieldValue, afterfieldValue, DateTime.Now))
+                    {
+                        return false;
+                    }
+
                 }
 
                 index++;
             }
 
+
+
             if (!SaveHistory(IDAsisTableList, IDRecord, Convert.ToInt32(HttpContext.Current.Session["IDUser"]), 1, DateTime.Now, strHistory))
             {
                 return false;
             }
+
             return true;
         }
 
@@ -258,7 +255,9 @@ namespace DSupportWebApp.Models
 
         private static bool HasHistory(int IDAsisTableList)
         {
-            var hasHistory = db.asis_tablelist.Where(i => i.IDAsisTableList == IDAsisTableList).Select(l => l.HasHistory).Any();
+            var hasHistory = db.asis_tablelist.Where(i => i.IDAsisTableList == IDAsisTableList &&
+            i.HasHistory
+            ).Select(l => l.HasHistory).Any();
             return hasHistory;
         }
         
@@ -273,6 +272,41 @@ namespace DSupportWebApp.Models
                 IDAttRecordOperation = IDAttRecordOperation,
                 DateOperation = dateOperation,
                 Logchange = strHistory
+            });
+
+            saved = db.SaveChanges() > 0;
+
+            return saved;
+        }
+
+        private static int SaveAsisTablelistLog(int IDAsisTableList, int RecordID, int IDUser, int IDAttRecordOperation, DateTime dateOperation)
+        {
+            bool saved = false;
+            var result = db.asis_tablelog.Add(new asis_tablelog
+            {
+                IDAsisTableList = IDAsisTableList,
+                RecordID = RecordID,
+                IDUser = IDUser,
+                IDAttRecordOperation = IDAttRecordOperation,
+                DateOperation = dateOperation
+            });
+
+            saved = db.SaveChanges() > 0;
+
+            return result.IDAsisTableLog;
+        }
+
+        private static bool SaveAsisTablelistLogchange(int IDAsisTableLog, string fieldName, string beforeChange, string afterChange, DateTime dateOperation)
+        {
+            bool saved = false;
+            var result = db.asis_tablelogchange.Add(new asis_tablelogchange
+            {
+                IDAsisTableLog = IDAsisTableLog,
+                DateTimeOperation = dateOperation,
+                FieldName = fieldName,
+                BeforeChange= beforeChange,
+                AfterChange = afterChange
+
             });
 
             saved = db.SaveChanges() > 0;

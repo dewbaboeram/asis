@@ -17,8 +17,8 @@ namespace DSupportWebApp.Models
         public int IDAttSub { get; set; }
         public Nullable<int> IDAttMain { get; set; }
         public string SortOrder { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
+        public string Name_NL { get; set; }
+        public string Name_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }

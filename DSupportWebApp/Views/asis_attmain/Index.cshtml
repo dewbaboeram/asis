@@ -1,55 +1,63 @@
 ﻿@model IEnumerable<DSupportWebApp.Models.asis_attmain>
-@using DSupportWebApp.Models;
-@using AsisLibrary;
 
 @{
-    ViewBag.CreateNew = AsisModelHelper.GetViewBagLabel(ViewBag, "Create New", "02");
-    string strCreateNew = ViewBag.CreateNew;
-    ViewBag.Edit = AsisModelHelper.GetViewBagLabel(ViewBag, "Edit", "03");
-    string strEdit = ViewBag.Edit;
-    ViewBag.Details = AsisModelHelper.GetViewBagLabel(ViewBag, "Detail", "04");
-    string strDetails = ViewBag.Details;
-    ViewBag.Delete = AsisModelHelper.GetViewBagLabel(ViewBag, "Delete", "05");
-    string strDelete = ViewBag.Delete;
-
+    ViewBag.Title = "Index";
 }
 
-<h2>@AsisModelHelper.GetViewBagLabel(ViewBag, "Title", "01")</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink(strCreateNew, "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @AsisModelHelper.GetViewBagLabel(ViewBag,"Rec.nr", "06")
+            @Html.DisplayNameFor(model => model.Name_NL)
         </th>
         <th>
-            @AsisModelHelper.GetViewBagLabel(ViewBag, "Attribute", "07")
+            @Html.DisplayNameFor(model => model.Name_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDAttMain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @*@Html.ActionLink(strEdit, "Edit", new { id = item.IDAttMain }) |
-                    @Html.ActionLink(strDetails, "Details", new { id = item.IDAttMain }) |
-                    @Html.ActionLink(strDelete, "Delete", new { id = item.IDAttMain })*@
-
-                @Html.ImageActionLink(strEdit, "Edit", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/edit.gif") |
-                @Html.ImageActionLink(strDetails, "Details", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/details.gif") |
-                @Html.ImageActionLink(strDelete, "Delete", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/delete.gif") |
-
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDAttMain }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDAttMain }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDAttMain })
+        </td>
+    </tr>
+}
 
 </table>

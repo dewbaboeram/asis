@@ -9,8 +9,8 @@ namespace DSupportWebApp.Models
     public partial class user_group
     {
         [AllowHtml]
-        public string DescriptionNL { get; set; }
+        public string Description_NL { get; set; }
         [AllowHtml]
-        public string DescriptionEN { get; set; }
+        public string Description_EN { get; set; }
     }
 }

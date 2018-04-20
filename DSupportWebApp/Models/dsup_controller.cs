@@ -12,12 +12,10 @@ namespace DSupportWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class att_help
+    public partial class dsup_controller
     {
-        public int IDHelp { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
-        public string Controller { get; set; }
+        public int IDController { get; set; }
+        public string ControllerName { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }

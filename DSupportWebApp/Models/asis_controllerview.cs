@@ -18,6 +18,8 @@ namespace DSupportWebApp.Models
         public Nullable<int> IDController { get; set; }
         public string SortID { get; set; }
         public string ViewName { get; set; }
+        public string Help_NL { get; set; }
+        public string Help_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }

@@ -15,8 +15,8 @@ namespace DSupportWebApp.Models
     public partial class att_param
     {
         public int IDParam { get; set; }
-        public string KeyNL { get; set; }
-        public string KeyEN { get; set; }
+        public string Key_NL { get; set; }
+        public string Key_EN { get; set; }
         public string Value { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }

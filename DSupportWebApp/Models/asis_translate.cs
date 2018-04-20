@@ -15,8 +15,8 @@ namespace DSupportWebApp.Models
     public partial class asis_translate
     {
         public int IDAsisTranslate { get; set; }
-        public string WordsNL { get; set; }
-        public string WordsEN { get; set; }
+        public string Words_NL { get; set; }
+        public string Words_EN { get; set; }
         public bool IsStandard { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }

@@ -6599,6 +6599,12 @@ height:150px;
 }
 
 .edit {
-background-image:url()
+    background-image: url()
 }
+
+.helpicon
+{
+    float:right;
+}
+
 

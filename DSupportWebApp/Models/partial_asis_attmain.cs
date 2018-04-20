@@ -9,10 +9,10 @@ namespace DSupportWebApp.Models
     public partial class asis_attmain
     {
         [Required]
-        public string NameNL { get; set; }
+        public string Name_NL { get; set; }
 
         [Required]
-        public string NameEN { get; set; }
+        public string Name_EN { get; set; }
 
          public string Name {
             get

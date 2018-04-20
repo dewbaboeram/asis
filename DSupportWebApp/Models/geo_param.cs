@@ -12,13 +12,12 @@ namespace DSupportWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class asis_controllerviewhelp
+    public partial class geo_param
     {
-        public int IDHelp { get; set; }
-        public int IDControllerView { get; set; }
-        public string SortID { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
+        public int IDParam { get; set; }
+        public string Key_NL { get; set; }
+        public string Key_EN { get; set; }
+        public string Value { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public System.DateTime DateCreated { get; set; }

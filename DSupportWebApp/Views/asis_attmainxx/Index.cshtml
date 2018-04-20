@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DSupportWebApp.Models.asis_attmain>
+@using DSupportWebApp.Models;
+@using AsisLibrary;
+
+<p class="helpicon">
+        @Html.ImageActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Delete", "08"), "Delete", "asis_attmain", null, null, "~/Content/DSupportWebApp/asset/img/help.gif")
+    </p>
+
+<h2>@AsisModelHelper.GetViewBagLabel(ViewBag, "Index", "01") </h2>
+
+<p>
+    @Html.ActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Create New", "02"), "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Rec.ID", "06")
+        </th>
+        <th>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Attribute", "07")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDAttMain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ImageActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Edit", "03"), "Edit", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/edit.gif") |
+                @Html.ImageActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Details", "04"), "Details", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/details.gif") |
+                @Html.ImageActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Delete", "05"), "Delete", "asis_attmain", new { id = item.IDAttMain }, null, "~/Content/DSupportWebApp/asset/img/delete.gif") |
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -16,7 +16,6 @@ namespace DSupportWebApp.Controllers
 
         //IAsisObject
         public int IDUser => Convert.ToInt32 (Session["IDUser"]);
-        //public int IDAttRecordOperation { get; set; }
         public object previousRecord { get; set; }
         public object currentRecord { get; set;}
 
@@ -27,8 +26,6 @@ namespace DSupportWebApp.Controllers
         public AsisBaseController() {
             db.asisObject = this;
         }
-
-
 
         // GET: AsisBase
         public ActionResult Intialize(ActionResult result, string prefix, string controllerName, string actionViewName)
@@ -80,7 +77,6 @@ namespace DSupportWebApp.Controllers
 
                         }
 
-
                     }
                     else
                     {
@@ -93,9 +89,6 @@ namespace DSupportWebApp.Controllers
                                 break;
 
                             case "Delete":
-                                //var id = Convert.ToInt32(filterContext.RouteData.Values["id"]);
-                                //this.previousRecord = Session["prevRecord"]; //FindAsisObjectModel(GetAsisObjectModelType().Name, id);
-                                //this.currentRecord = filterContext.ActionParameters[GetAsisObjectModelType().Name];
                                 break;
 
                         }
@@ -110,7 +103,6 @@ namespace DSupportWebApp.Controllers
         {
             //throw new NotImplementedException();
         }
-
 
 
         private void TranslateController(string prefix, string controllerName, string actionViewName)

@@ -1,0 +1,75 @@
+﻿@model DSupportWebApp.Models.asis_attmain
+@using DSupportWebApp.Models;
+@using AsisLibrary;
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@AsisModelHelper.GetViewBagLabel(ViewBag, "Details", "01")</h2>
+
+<div>
+    <h4>asis_attmain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Rec.ID", "02")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDAttMain)
+        </dd>
+
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Attribute", "03")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Created by", "04")
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.IDUserCreated)*@
+            @AsisModelControls.GetRelPersonFullNameFromIDUser((int)Model.IDUserCreated)
+        </dd>
+
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Last modified by", "05")
+        </dt>
+
+        <dd>
+            @AsisModelControls.GetRelPersonFullNameFromIDUser((int)Model.IDUserModified)
+        </dd>
+
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Date created", "06")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Date last modified", "07")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+        <dt>
+            @AsisModelHelper.GetViewBagLabel(ViewBag, "Record history", "08")
+        </dt>
+
+        <dd>
+            @AsisModelControls.GetRelPersonFullNameFromIDUser((int)Model.IDUserModified)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Edit", "09"), "Edit", new { id = Model.IDAttMain }) |
+    @Html.ActionLink((string)AsisModelHelper.GetViewBagLabel(ViewBag, "Back to List", "10"), "Index")
+</p>

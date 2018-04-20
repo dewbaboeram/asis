@@ -21,7 +21,9 @@
         public override int SaveChanges()
         {
             var modifiedEntities = ChangeTracker.Entries()
-                .Where(p => p.Entity.GetType().Name != "asis_tablelog" && (p.State == EntityState.Added || p.State == EntityState.Modified || p.State == EntityState.Deleted)).ToList();
+                .Where(p => p.Entity.GetType().Name != "asis_tablelog" &&
+                p.Entity.GetType().Name != "asis_tablelogchange" &&
+                (p.State == EntityState.Added || p.State == EntityState.Modified || p.State == EntityState.Deleted)).ToList();
             var now = DateTime.UtcNow;
             
             foreach (var change in modifiedEntities)

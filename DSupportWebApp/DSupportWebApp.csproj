@@ -196,6 +196,7 @@
     <Compile Include="Controllers\asis_attmainController.cs" />
     <Compile Include="Controllers\asis_attsubController.cs" />
     <Compile Include="Controllers\asis_controllerController.cs" />
+    <Compile Include="Controllers\asis_controllerview1Controller.cs" />
     <Compile Include="Controllers\asis_controllerviewController.cs" />
     <Compile Include="Controllers\asis_controllerviewitemController.cs" />
     <Compile Include="Controllers\asis_controllerviewusergroupController.cs" />
@@ -217,6 +218,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AsisModelControls.cs" />
     <Compile Include="Models\AsisModelHelper.cs" />
     <Compile Include="Models\asis_attmain.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
@@ -228,9 +230,6 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_controllerview.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asis_controllerviewhelp.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_controllerviewitem.cs">
@@ -266,10 +265,22 @@
     <Compile Include="Models\asis_tablelog.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\asis_tablelogchange.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\asis_translate.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\att_help.cs">
+    <Compile Include="Models\att_controller.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_controllerview.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_controllerviewusergroup.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\att_main.cs">
@@ -282,6 +293,123 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\att_sub.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_carer.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_carerattribute.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_careravailable.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_children.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_contactform.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_controller.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_controllerview.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_controllerviewusergroup.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_coordinator.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_course.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_courseparticipant.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_coursetrainer.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_elearning.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_event.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_eventperson.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_eventpersonattribute.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_family.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_familyavailable.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_familycarer.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_matchplace.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_mediation.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_moodle.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_newsletter.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_pgb.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_project.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_stat.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_vog.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dsup_volunteer.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_controller.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_controllerview.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_controllerviewusergroup.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_country.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_message.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_municipality.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_param.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_place.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_province.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -305,6 +433,57 @@
     <Compile Include="Models\partial_asis_tablelog.cs" />
     <Compile Include="Models\partial_ModelDSupportWebApp.Context.cs" />
     <Compile Include="Models\partial_user_group.cs" />
+    <Compile Include="Models\rel_controller.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_controllerview.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_controllerviewusergroup.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_gender.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_institution.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_institutionattribute.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_message.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_param.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_person.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_personattribute.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_personinstitution.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_controller.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_controllerview.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_controllerviewitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_controllerviewusergroup.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_list.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\user_controller.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -320,9 +499,6 @@
     <Compile Include="Models\user_group.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\user_help.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\user_list.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -330,6 +506,9 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_message.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_param.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -983,11 +1162,11 @@
     <Content Include="Views\asis_module\Details.cshtml" />
     <Content Include="Views\asis_module\Edit.cshtml" />
     <Content Include="Views\asis_module\Index.cshtml" />
-    <Content Include="Views\asis_attmain\Create.cshtml" />
-    <Content Include="Views\asis_attmain\Delete.cshtml" />
-    <Content Include="Views\asis_attmain\Details.cshtml" />
-    <Content Include="Views\asis_attmain\Edit.cshtml" />
-    <Content Include="Views\asis_attmain\Index.cshtml" />
+    <Content Include="Views\asis_attmainxx\Create.cshtml" />
+    <Content Include="Views\asis_attmainxx\Delete.cshtml" />
+    <Content Include="Views\asis_attmainxx\Details.cshtml" />
+    <Content Include="Views\asis_attmainxx\Edit.cshtml" />
+    <Content Include="Views\asis_attmainxx\Index.cshtml" />
     <Content Include="Views\asis_attsub\Create.cshtml" />
     <Content Include="Views\asis_attsub\Delete.cshtml" />
     <Content Include="Views\asis_attsub\Details.cshtml" />
@@ -1067,7 +1246,14 @@
     <Content Include="Views\att_sub\Details.cshtml" />
     <Content Include="Views\att_sub\Edit.cshtml" />
     <Content Include="Views\att_sub\Index.cshtml" />
-    <Content Include="Views\asis_attmain\Index - Copy.cshtml" />
+    <Content Include="Views\asis_attmainxx\Index - Copy.cshtml" />
+    <Content Include="Views\asis_controllerview1\Details.cshtml" />
+    <Content Include="Views\asis_controllerview1\Edit.cshtml" />
+    <Content Include="Views\asis_attmain\Create.cshtml" />
+    <Content Include="Views\asis_attmain\Delete.cshtml" />
+    <Content Include="Views\asis_attmain\Details.cshtml" />
+    <Content Include="Views\asis_attmain\Edit.cshtml" />
+    <Content Include="Views\asis_attmain\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

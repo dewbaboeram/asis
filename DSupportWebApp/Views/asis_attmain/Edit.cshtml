@@ -1,8 +1,7 @@
 ﻿@model DSupportWebApp.Models.asis_attmain
 
 @{
-    ViewBag.Title = ViewBag.EditText;
-
+    ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
@@ -10,26 +9,26 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>asis_attmain</h4>
         <hr />
-        @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IDAttMain)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NameNL, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name_NL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NameNL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NameNL, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name_NL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name_NL, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NameEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name_EN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NameEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NameEN, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name_EN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name_EN, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -37,7 +36,6 @@
             @Html.LabelFor(model => model.IDUserCreated, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IDUserCreated, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.DropDownListFor(model => model.IDUserCreated, (IEnumerable<SelectListItem>)ViewBag.user_list)*@
                 @Html.ValidationMessageFor(model => model.IDUserCreated, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -75,5 +73,5 @@
 }
 
 <div>
-    Html.ActionLink(@ViewBag.BackToListText, "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>

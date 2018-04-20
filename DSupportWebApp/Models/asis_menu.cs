@@ -16,8 +16,8 @@ namespace DSupportWebApp.Models
     {
         public int IDAsisMenu { get; set; }
         public Nullable<int> IDUserGroup { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
+        public string Name_NL { get; set; }
+        public string Name_EN { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
         public string ImgLevel { get; set; }

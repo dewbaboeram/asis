@@ -18,10 +18,10 @@ namespace DSupportWebApp.Models
         public Nullable<int> IDAsisTableList { get; set; }
         public string SortID { get; set; }
         public string FieldName { get; set; }
-        public string DisplayNL { get; set; }
-        public string DisplayEN { get; set; }
-        public string HelpNL { get; set; }
-        public string HelpEN { get; set; }
+        public string Display_NL { get; set; }
+        public string Display_EN { get; set; }
+        public string Help_NL { get; set; }
+        public string Help_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }

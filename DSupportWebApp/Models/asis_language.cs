@@ -15,8 +15,8 @@ namespace DSupportWebApp.Models
     public partial class asis_language
     {
         public int IDAsisLanguage { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
+        public string Name_NL { get; set; }
+        public string Name_EN { get; set; }
         public string Code { get; set; }
         public string SortID { get; set; }
         public string FlagFile { get; set; }

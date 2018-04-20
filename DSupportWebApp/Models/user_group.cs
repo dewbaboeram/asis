@@ -15,10 +15,10 @@ namespace DSupportWebApp.Models
     public partial class user_group
     {
         public int IDUserGroup { get; set; }
-        public string NameNL { get; set; }
-        public string NameEN { get; set; }
-        //public string DescriptionNL { get; set; }
-        //public string DescriptionEN { get; set; }
+        public string Name_NL { get; set; }
+        public string Name_EN { get; set; }
+        //public string Description_NL { get; set; }
+        //public string Description_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
         public string DateCreated { get; set; }
