@@ -28,7 +28,7 @@ namespace DSupportWebApp.Models
 
         public static string GetDisplayColumnName(int IDDisplay)
         {
-            var label = db.asis_tablelistdisplay.Where(i => i.IDAsisTableListDisplay == IDDisplay).
+            var label = db.asis_tablelistdisplay.Where(i => i.IDTablelistDisplay == IDDisplay).
                 Select(l => l).SingleOrDefault();
 
             return GetDisplayColumnValue(label.FieldName, label) as string;
@@ -249,24 +249,23 @@ namespace DSupportWebApp.Models
 
         private static int GetAsisTableID(string tableName)
         {
-            var IDTableList = db.asis_tablelist.Where(i => i.TableName == tableName).Select(l => l.IDAsisTableList).SingleOrDefault();
+            var IDTableList = db.asis_tablelist.Where(i => i.TableName == tableName).Select(l => l.IDTableList).SingleOrDefault();
             return IDTableList;
         }
 
-        private static bool HasHistory(int IDAsisTableList)
+        private static bool HasHistory(int IDTableList)
         {
-            var hasHistory = db.asis_tablelist.Where(i => i.IDAsisTableList == IDAsisTableList &&
-            i.HasHistory
+            var hasHistory = db.asis_tablelist.Where(i =>i.IDTableList == IDTableList && i.HasHistory == true
             ).Select(l => l.HasHistory).Any();
             return hasHistory;
         }
         
-        private static bool SaveHistory(int IDAsisTableList, int RecordID, int IDUser, int IDAttRecordOperation, DateTime dateOperation, string strHistory)
+        private static bool SaveHistory(int IDTableList, int RecordID, int IDUser, int IDAttRecordOperation, DateTime dateOperation, string strHistory)
         {
             bool saved = false;
             db.asis_tablelog.Add(new asis_tablelog
             {
-                IDAsisTableList = IDAsisTableList,
+                 IDTableList = IDTableList,
                 RecordID = RecordID,
                 IDUser = IDUser,
                 IDAttRecordOperation = IDAttRecordOperation,
@@ -284,7 +283,7 @@ namespace DSupportWebApp.Models
             bool saved = false;
             var result = db.asis_tablelog.Add(new asis_tablelog
             {
-                IDAsisTableList = IDAsisTableList,
+                IDTableList = IDAsisTableList,
                 RecordID = RecordID,
                 IDUser = IDUser,
                 IDAttRecordOperation = IDAttRecordOperation,

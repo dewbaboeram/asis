@@ -14,17 +14,15 @@ namespace DSupportWebApp.Models
     
     public partial class asis_tablelist
     {
-        public int IDAsisTableList { get; set; }
-        public Nullable<int> IDAsisModule { get; set; }
+        public int IDTableList { get; set; }
         public string TableName { get; set; }
-        public string SortID { get; set; }
         public string Description_NL { get; set; }
         public string Description_EN { get; set; }
-        public bool HasHistory { get; set; }
-        public bool IsMultiLingual { get; set; }
-        public int IDUserCreated { get; set; }
-        public int IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<bool> HasHistory { get; set; }
+        public Nullable<bool> IsMultiLingual { get; set; }
+        public Nullable<int> IDUserCreated { get; set; }
+        public Nullable<int> IDUserModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

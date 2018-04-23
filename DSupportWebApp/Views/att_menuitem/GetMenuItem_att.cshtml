@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DSupportWebApp.Models.att_menuitem>
+
+<ul class="nav nav-list tree">
+
+@foreach (var item in Model) {
+            <li><a href="/@(item.Controller)">@(item.Name_NL)</a></li>
+}
+
+</ul>

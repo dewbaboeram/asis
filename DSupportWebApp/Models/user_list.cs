@@ -22,10 +22,10 @@ namespace DSupportWebApp.Models
         public string IPAddressLocal { get; set; }
         public string IPAddressPubic { get; set; }
         public string MachineName { get; set; }
-        public Nullable<bool> IsBlocked { get; set; }
+        public Nullable<int> IsBlocked { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

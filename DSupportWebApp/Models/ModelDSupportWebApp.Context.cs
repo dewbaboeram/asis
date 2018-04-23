@@ -31,7 +31,10 @@ namespace DSupportWebApp.Models
         public virtual DbSet<asis_controllerview> asis_controllerview { get; set; }
         public virtual DbSet<asis_controllerviewitem> asis_controllerviewitem { get; set; }
         public virtual DbSet<asis_controllerviewusergroup> asis_controllerviewusergroup { get; set; }
+        public virtual DbSet<asis_fieldtype> asis_fieldtype { get; set; }
         public virtual DbSet<asis_language> asis_language { get; set; }
+        public virtual DbSet<asis_master> asis_master { get; set; }
+        public virtual DbSet<asis_masterdetail> asis_masterdetail { get; set; }
         public virtual DbSet<asis_menu> asis_menu { get; set; }
         public virtual DbSet<asis_menuitem> asis_menuitem { get; set; }
         public virtual DbSet<asis_message> asis_message { get; set; }
@@ -39,28 +42,46 @@ namespace DSupportWebApp.Models
         public virtual DbSet<asis_param> asis_param { get; set; }
         public virtual DbSet<asis_tablelist> asis_tablelist { get; set; }
         public virtual DbSet<asis_tablelistdisplay> asis_tablelistdisplay { get; set; }
+        public virtual DbSet<asis_tablelistdisplayvalidation> asis_tablelistdisplayvalidation { get; set; }
         public virtual DbSet<asis_tablelog> asis_tablelog { get; set; }
         public virtual DbSet<asis_tablelogchange> asis_tablelogchange { get; set; }
-        public virtual DbSet<asis_translate> asis_translate { get; set; }
+        public virtual DbSet<asis_validation> asis_validation { get; set; }
+        public virtual DbSet<asis_validationtype> asis_validationtype { get; set; }
         public virtual DbSet<att_controller> att_controller { get; set; }
         public virtual DbSet<att_controllerview> att_controllerview { get; set; }
         public virtual DbSet<att_controllerviewitem> att_controllerviewitem { get; set; }
         public virtual DbSet<att_controllerviewusergroup> att_controllerviewusergroup { get; set; }
         public virtual DbSet<att_main> att_main { get; set; }
+        public virtual DbSet<att_master> att_master { get; set; }
+        public virtual DbSet<att_masterdetail> att_masterdetail { get; set; }
+        public virtual DbSet<att_menu> att_menu { get; set; }
+        public virtual DbSet<att_menuitem> att_menuitem { get; set; }
         public virtual DbSet<att_message> att_message { get; set; }
         public virtual DbSet<att_param> att_param { get; set; }
         public virtual DbSet<att_sub> att_sub { get; set; }
-        public virtual DbSet<dsup_controllerviewusergroup> dsup_controllerviewusergroup { get; set; }
-        public virtual DbSet<dsup_stat> dsup_stat { get; set; }
+        public virtual DbSet<att_tablelist> att_tablelist { get; set; }
+        public virtual DbSet<att_tablelistdisplay> att_tablelistdisplay { get; set; }
+        public virtual DbSet<att_tablelistdisplayvalidation> att_tablelistdisplayvalidation { get; set; }
+        public virtual DbSet<dsup_controllerviewitem> dsup_controllerviewitem { get; set; }
+        public virtual DbSet<dsup_menu> dsup_menu { get; set; }
+        public virtual DbSet<dsup_menuitem> dsup_menuitem { get; set; }
         public virtual DbSet<geo_controller> geo_controller { get; set; }
         public virtual DbSet<geo_controllerview> geo_controllerview { get; set; }
         public virtual DbSet<geo_controllerviewitem> geo_controllerviewitem { get; set; }
         public virtual DbSet<geo_controllerviewusergroup> geo_controllerviewusergroup { get; set; }
         public virtual DbSet<geo_country> geo_country { get; set; }
+        public virtual DbSet<geo_master> geo_master { get; set; }
+        public virtual DbSet<geo_masterdetail> geo_masterdetail { get; set; }
+        public virtual DbSet<geo_menu> geo_menu { get; set; }
+        public virtual DbSet<geo_menuitem> geo_menuitem { get; set; }
         public virtual DbSet<geo_message> geo_message { get; set; }
         public virtual DbSet<geo_municipality> geo_municipality { get; set; }
+        public virtual DbSet<geo_param> geo_param { get; set; }
         public virtual DbSet<geo_place> geo_place { get; set; }
         public virtual DbSet<geo_province> geo_province { get; set; }
+        public virtual DbSet<geo_tablelist> geo_tablelist { get; set; }
+        public virtual DbSet<geo_tablelistdisplay> geo_tablelistdisplay { get; set; }
+        public virtual DbSet<geo_tablelistdisplayvalidation> geo_tablelistdisplayvalidation { get; set; }
         public virtual DbSet<rel_controller> rel_controller { get; set; }
         public virtual DbSet<rel_controllerview> rel_controllerview { get; set; }
         public virtual DbSet<rel_controllerviewitem> rel_controllerviewitem { get; set; }
@@ -68,15 +89,32 @@ namespace DSupportWebApp.Models
         public virtual DbSet<rel_gender> rel_gender { get; set; }
         public virtual DbSet<rel_institution> rel_institution { get; set; }
         public virtual DbSet<rel_institutionattribute> rel_institutionattribute { get; set; }
+        public virtual DbSet<rel_master> rel_master { get; set; }
+        public virtual DbSet<rel_masterdetail> rel_masterdetail { get; set; }
+        public virtual DbSet<rel_menu> rel_menu { get; set; }
+        public virtual DbSet<rel_menuitem> rel_menuitem { get; set; }
         public virtual DbSet<rel_message> rel_message { get; set; }
         public virtual DbSet<rel_param> rel_param { get; set; }
         public virtual DbSet<rel_person> rel_person { get; set; }
         public virtual DbSet<rel_personattribute> rel_personattribute { get; set; }
         public virtual DbSet<rel_personinstitution> rel_personinstitution { get; set; }
+        public virtual DbSet<rel_tablelist> rel_tablelist { get; set; }
+        public virtual DbSet<rel_tablelistdisplay> rel_tablelistdisplay { get; set; }
+        public virtual DbSet<rel_tablelistdisplayvalidation> rel_tablelistdisplayvalidation { get; set; }
         public virtual DbSet<trans_controller> trans_controller { get; set; }
         public virtual DbSet<trans_controllerview> trans_controllerview { get; set; }
+        public virtual DbSet<trans_controllerviewitem> trans_controllerviewitem { get; set; }
         public virtual DbSet<trans_controllerviewusergroup> trans_controllerviewusergroup { get; set; }
         public virtual DbSet<trans_list> trans_list { get; set; }
+        public virtual DbSet<trans_master> trans_master { get; set; }
+        public virtual DbSet<trans_masterdetail> trans_masterdetail { get; set; }
+        public virtual DbSet<trans_menu> trans_menu { get; set; }
+        public virtual DbSet<trans_menuitem> trans_menuitem { get; set; }
+        public virtual DbSet<trans_message> trans_message { get; set; }
+        public virtual DbSet<trans_param> trans_param { get; set; }
+        public virtual DbSet<trans_tablelist> trans_tablelist { get; set; }
+        public virtual DbSet<trans_tablelistdisplay> trans_tablelistdisplay { get; set; }
+        public virtual DbSet<trans_tablelistdisplayvalidation> trans_tablelistdisplayvalidation { get; set; }
         public virtual DbSet<user_controller> user_controller { get; set; }
         public virtual DbSet<user_controllerview> user_controllerview { get; set; }
         public virtual DbSet<user_controllerviewitem> user_controllerviewitem { get; set; }
@@ -84,36 +122,14 @@ namespace DSupportWebApp.Models
         public virtual DbSet<user_group> user_group { get; set; }
         public virtual DbSet<user_list> user_list { get; set; }
         public virtual DbSet<user_log> user_log { get; set; }
+        public virtual DbSet<user_master> user_master { get; set; }
+        public virtual DbSet<user_masterdetail> user_masterdetail { get; set; }
+        public virtual DbSet<user_menu> user_menu { get; set; }
         public virtual DbSet<user_message> user_message { get; set; }
         public virtual DbSet<user_param> user_param { get; set; }
-        public virtual DbSet<dsup_carer> dsup_carer { get; set; }
-        public virtual DbSet<dsup_carerattribute> dsup_carerattribute { get; set; }
-        public virtual DbSet<dsup_careravailable> dsup_careravailable { get; set; }
-        public virtual DbSet<dsup_children> dsup_children { get; set; }
-        public virtual DbSet<dsup_contactform> dsup_contactform { get; set; }
-        public virtual DbSet<dsup_controller> dsup_controller { get; set; }
-        public virtual DbSet<dsup_controllerview> dsup_controllerview { get; set; }
-        public virtual DbSet<dsup_controllerviewitem> dsup_controllerviewitem { get; set; }
-        public virtual DbSet<dsup_coordinator> dsup_coordinator { get; set; }
-        public virtual DbSet<dsup_course> dsup_course { get; set; }
-        public virtual DbSet<dsup_courseparticipant> dsup_courseparticipant { get; set; }
-        public virtual DbSet<dsup_coursetrainer> dsup_coursetrainer { get; set; }
-        public virtual DbSet<dsup_elearning> dsup_elearning { get; set; }
-        public virtual DbSet<dsup_event> dsup_event { get; set; }
-        public virtual DbSet<dsup_eventperson> dsup_eventperson { get; set; }
-        public virtual DbSet<dsup_eventpersonattribute> dsup_eventpersonattribute { get; set; }
-        public virtual DbSet<dsup_family> dsup_family { get; set; }
-        public virtual DbSet<dsup_familyavailable> dsup_familyavailable { get; set; }
-        public virtual DbSet<dsup_familycarer> dsup_familycarer { get; set; }
-        public virtual DbSet<dsup_matchplace> dsup_matchplace { get; set; }
-        public virtual DbSet<dsup_mediation> dsup_mediation { get; set; }
-        public virtual DbSet<dsup_moodle> dsup_moodle { get; set; }
-        public virtual DbSet<dsup_newsletter> dsup_newsletter { get; set; }
-        public virtual DbSet<dsup_pgb> dsup_pgb { get; set; }
-        public virtual DbSet<dsup_project> dsup_project { get; set; }
-        public virtual DbSet<dsup_vog> dsup_vog { get; set; }
-        public virtual DbSet<dsup_volunteer> dsup_volunteer { get; set; }
-        public virtual DbSet<geo_param> geo_param { get; set; }
-        public virtual DbSet<trans_controllerviewitem> trans_controllerviewitem { get; set; }
+        public virtual DbSet<user_tablelist> user_tablelist { get; set; }
+        public virtual DbSet<user_tablelistdisplay> user_tablelistdisplay { get; set; }
+        public virtual DbSet<user_tablelistdisplayvalidation> user_tablelistdisplayvalidation { get; set; }
+        public virtual DbSet<dsup_geoprovincecoord> dsup_geoprovincecoord { get; set; }
     }
 }

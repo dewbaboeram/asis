@@ -15,11 +15,11 @@ namespace DSupportWebApp.Models
     public partial class asis_tablelog
     {
         public int IDAsisTableLog { get; set; }
-        public int IDAsisTableList { get; set; }
-        public int RecordID { get; set; }
-        public int IDUser { get; set; }
-        public int IDAttRecordOperation { get; set; }
-        public System.DateTime DateOperation { get; set; }
-        //public string Logchange { get; set; }
+        public Nullable<int> IDTableList { get; set; }
+        public Nullable<int> RecordID { get; set; }
+        public Nullable<int> IDUser { get; set; }
+        public Nullable<int> IDAttRecordOperation { get; set; }
+        public Nullable<System.DateTime> DateOperation { get; set; }
+        public string Logchange { get; set; }
     }
 }

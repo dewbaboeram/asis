@@ -15,10 +15,10 @@ namespace DSupportWebApp.Models
     public partial class asis_tablelogchange
     {
         public int IDAsisTableLogChange { get; set; }
-        public System.DateTime DateTimeOperation { get; set; }
+        public Nullable<System.DateTime> DateTimeOperation { get; set; }
         public string FieldName { get; set; }
         public string BeforeChange { get; set; }
         public string AfterChange { get; set; }
-        public int IDAsisTableLog { get; set; }
+        public Nullable<int> IDAsisTableLog { get; set; }
     }
 }

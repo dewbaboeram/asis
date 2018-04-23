@@ -209,6 +209,7 @@
     <Compile Include="Controllers\asis_tablelistController.cs" />
     <Compile Include="Controllers\asis_tablelogController.cs" />
     <Compile Include="Controllers\att_mainController.cs" />
+    <Compile Include="Controllers\att_menuitemController.cs" />
     <Compile Include="Controllers\att_subController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -238,7 +239,16 @@
     <Compile Include="Models\asis_controllerviewusergroup.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\asis_fieldtype.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\asis_language.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asis_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asis_masterdetail.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_menu.cs">
@@ -262,13 +272,19 @@
     <Compile Include="Models\asis_tablelistdisplay.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\asis_tablelistdisplayvalidation.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\asis_tablelog.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\asis_tablelogchange.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\asis_translate.cs">
+    <Compile Include="Models\asis_validation.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asis_validationtype.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\att_controller.cs">
@@ -286,6 +302,18 @@
     <Compile Include="Models\att_main.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\att_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_masterdetail.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_menu.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\att_menuitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\att_message.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -295,91 +323,25 @@
     <Compile Include="Models\att_sub.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_carer.cs">
+    <Compile Include="Models\att_tablelist.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_carerattribute.cs">
+    <Compile Include="Models\att_tablelistdisplay.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_careravailable.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_children.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_contactform.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_controller.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_controllerview.cs">
+    <Compile Include="Models\att_tablelistdisplayvalidation.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\dsup_controllerviewitem.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_controllerviewusergroup.cs">
+    <Compile Include="Models\dsup_geoprovincecoord.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_coordinator.cs">
+    <Compile Include="Models\dsup_menu.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dsup_course.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_courseparticipant.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_coursetrainer.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_elearning.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_event.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_eventperson.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_eventpersonattribute.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_family.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_familyavailable.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_familycarer.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_matchplace.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_mediation.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_moodle.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_newsletter.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_pgb.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_project.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_stat.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_vog.cs">
-      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dsup_volunteer.cs">
+    <Compile Include="Models\dsup_menuitem.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\geo_controller.cs">
@@ -397,6 +359,18 @@
     <Compile Include="Models\geo_country.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\geo_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_masterdetail.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_menu.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_menuitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\geo_message.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -410,6 +384,15 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\geo_province.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_tablelist.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_tablelistdisplay.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\geo_tablelistdisplayvalidation.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -429,10 +412,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelDSupportWebApp.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\partial_asis_attmain.cs" />
-    <Compile Include="Models\partial_asis_tablelog.cs" />
     <Compile Include="Models\partial_ModelDSupportWebApp.Context.cs" />
-    <Compile Include="Models\partial_user_group.cs" />
     <Compile Include="Models\rel_controller.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -454,6 +434,18 @@
     <Compile Include="Models\rel_institutionattribute.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\rel_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_masterdetail.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_menu.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_menuitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\rel_message.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -469,6 +461,15 @@
     <Compile Include="Models\rel_personinstitution.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\rel_tablelist.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_tablelistdisplay.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rel_tablelistdisplayvalidation.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\trans_controller.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
@@ -482,6 +483,33 @@
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\trans_list.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_masterdetail.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_menu.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_menuitem.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_message.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_param.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_tablelist.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_tablelistdisplay.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trans_tablelistdisplayvalidation.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_controller.cs">
@@ -505,10 +533,28 @@
     <Compile Include="Models\user_log.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\user_master.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_masterdetail.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_menu.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\user_message.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user_param.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_tablelist.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_tablelistdisplay.cs">
+      <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_tablelistdisplayvalidation.cs">
       <DependentUpon>ModelDSupportWebApp.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1254,6 +1300,14 @@
     <Content Include="Views\asis_attmain\Details.cshtml" />
     <Content Include="Views\asis_attmain\Edit.cshtml" />
     <Content Include="Views\asis_attmain\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout-kopiecshtml" />
+    <Content Include="Views\asis_menuitem\GetMenuItem_asis.cshtml" />
+    <Content Include="Views\att_menuitem\Create.cshtml" />
+    <Content Include="Views\att_menuitem\Delete.cshtml" />
+    <Content Include="Views\att_menuitem\Details.cshtml" />
+    <Content Include="Views\att_menuitem\Edit.cshtml" />
+    <Content Include="Views\att_menuitem\Index.cshtml" />
+    <Content Include="Views\att_menuitem\GetMenuItem_att.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

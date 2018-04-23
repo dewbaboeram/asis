@@ -14,10 +14,19 @@ namespace DSupportWebApp.Models
     
     public partial class asis_tablelistdisplay
     {
-        public int IDAsisTableListDisplay { get; set; }
-        public Nullable<int> IDAsisTableList { get; set; }
+        public int IDTablelistDisplay { get; set; }
+        public Nullable<int> IDTableList { get; set; }
+        public Nullable<int> IDController { get; set; }
+        public string Version { get; set; }
+        public Nullable<bool> IsInIndex { get; set; }
+        public Nullable<bool> IsInCreate { get; set; }
+        public Nullable<bool> IsInEdit { get; set; }
+        public Nullable<bool> IsInDetail { get; set; }
+        public Nullable<bool> IsInExcel { get; set; }
+        public Nullable<bool> IsMultiLingual { get; set; }
         public string SortID { get; set; }
         public string FieldName { get; set; }
+        public Nullable<int> IDAsisFieldType { get; set; }
         public string Display_NL { get; set; }
         public string Display_EN { get; set; }
         public string Help_NL { get; set; }

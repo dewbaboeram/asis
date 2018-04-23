@@ -18,7 +18,7 @@ namespace DSupportWebApp.Models
         public string ControllerName { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

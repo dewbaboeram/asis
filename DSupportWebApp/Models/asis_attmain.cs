@@ -15,11 +15,11 @@ namespace DSupportWebApp.Models
     public partial class asis_attmain
     {
         public int IDAttMain { get; set; }
-        //public string Name_NL { get; set; }
-        //public string Name_EN { get; set; }
+        public string Name_NL { get; set; }
+        public string Name_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

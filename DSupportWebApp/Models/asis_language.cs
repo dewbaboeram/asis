@@ -21,10 +21,10 @@ namespace DSupportWebApp.Models
         public string SortID { get; set; }
         public string FlagFile { get; set; }
         public string Culture { get; set; }
-        public Nullable<bool> IsPublished { get; set; }
+        public Nullable<int> IsPublished { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateTimeCreated { get; set; }
-        public System.DateTime DateTimeModified { get; set; }
+        public Nullable<System.DateTime> DateTimeCreated { get; set; }
+        public Nullable<System.DateTime> DateTimeModified { get; set; }
     }
 }

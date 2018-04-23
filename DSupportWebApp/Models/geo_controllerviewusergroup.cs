@@ -15,11 +15,11 @@ namespace DSupportWebApp.Models
     public partial class geo_controllerviewusergroup
     {
         public int IDControllerViewUserGroup { get; set; }
-        public Nullable<int> IDControllerView { get; set; }
+        public Nullable<int> IDControllerview { get; set; }
         public Nullable<int> IDUserGroup { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

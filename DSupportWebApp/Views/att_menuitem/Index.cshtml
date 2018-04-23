@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DSupportWebApp.Models.att_menuitem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDMenu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_NL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_EN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Controller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Action)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUserModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDMenu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_NL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_EN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Controller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Action)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUserModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDMenuitem }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDMenuitem }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDMenuitem })
+        </td>
+    </tr>
+}
+
+</table>

@@ -14,6 +14,14 @@ namespace DSupportWebApp.Controllers
     {
         private dsupportwebappEntities db = new dsupportwebappEntities();
 
+        public PartialViewResult GetMenuItem_asis()
+
+        {
+            return PartialView("GetMenuItem_asis",db.asis_menuitem.ToList());
+        }
+
+
+
         // GET: asis_menuitem
         public ActionResult Index()
         {
@@ -46,7 +54,7 @@ namespace DSupportWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDAsisMenuItem,IDAsisMenu,IDUserGroup,NameNL,NameEN,Controller,Action,ImgLevel,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_menuitem asis_menuitem)
+        public ActionResult Create([Bind(Include = "IDMenuItem,IDMenu,IDUserGroup,NameNL,NameEN,Controller,Action,ImgLevel,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_menuitem asis_menuitem)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +86,7 @@ namespace DSupportWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDAsisMenuItem,IDAsisMenu,IDUserGroup,NameNL,NameEN,Controller,Action,ImgLevel,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_menuitem asis_menuitem)
+        public ActionResult Edit([Bind(Include = "IDMenuItem,IDMenu,IDUserGroup,NameNL,NameEN,Controller,Action,ImgLevel,IDUserCreated,IDUserModified,DateCreated,DateModified")] asis_menuitem asis_menuitem)
         {
             if (ModelState.IsValid)
             {

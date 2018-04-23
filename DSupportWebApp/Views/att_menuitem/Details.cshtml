@@ -1,0 +1,114 @@
+﻿@model DSupportWebApp.Models.att_menuitem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>att_menuitem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_NL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_NL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_EN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_EN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Controller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Controller)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Action)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Action)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUserModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUserModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMenuitem }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

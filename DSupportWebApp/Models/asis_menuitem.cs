@@ -14,18 +14,18 @@ namespace DSupportWebApp.Models
     
     public partial class asis_menuitem
     {
-        public int IDAsisMenuItem { get; set; }
-        public Nullable<int> IDAsisMenu { get; set; }
-        public string SortID { get; set; }
+        public int IDMenuitem { get; set; }
+        public Nullable<int> IDMenu { get; set; }
         public Nullable<int> IDUserGroup { get; set; }
+        public string SortID { get; set; }
         public string Name_NL { get; set; }
         public string Name_EN { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
-        public string ImgLevel { get; set; }
+        public Nullable<int> ID { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }

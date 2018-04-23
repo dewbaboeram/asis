@@ -38,7 +38,7 @@ namespace DSupportWebApp.Models
 
             var fullname = Convert.ToString((
                 from t in db.asis_tablelog
-                where t.IDAsisTableList == 1 && t.RecordID == IDRecord
+                where t.IDTableList == 1 && t.RecordID == IDRecord
                 select t.DateOperation));
 
             return fullname;

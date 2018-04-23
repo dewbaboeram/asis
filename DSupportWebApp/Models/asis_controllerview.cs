@@ -16,13 +16,13 @@ namespace DSupportWebApp.Models
     {
         public int IDControllerView { get; set; }
         public Nullable<int> IDController { get; set; }
-        public string SortID { get; set; }
         public string ViewName { get; set; }
+        public string SortID { get; set; }
         public string Help_NL { get; set; }
         public string Help_EN { get; set; }
         public Nullable<int> IDUserCreated { get; set; }
         public Nullable<int> IDUserModified { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
     }
 }
